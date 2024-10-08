@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0</TargetFrameworks>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <Version>1.0.0-alpha.1</Version>
+        <Authors>Jonas Merkle [JJM]</Authors>
+        <Copyright>© by Jonas Merkle [JJM], 2024.</Copyright>
+        <PackageId>jjm.one.Slack.Webhooks</PackageId>
+        <Title>jjm.one.Slack.Webhooks</Title>
+        <Description>Even simpler integration with Slack's Incoming/Outgoing webhooks API for .net</Description>
+        <PackageTags>slack, csharp</PackageTags>
+        <PackageProjectUrl>https://github.com/jjm-one/jjm.one.Slack.Webhooks</PackageProjectUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/jjm-one/jjm.one.Slack.Webhooks</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        <SignAssembly>True</SignAssembly>
+        <AssemblyOriginatorKeyFile>jjm.one.Slack.Webhooks.SignKey.snk</AssemblyOriginatorKeyFile>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <PackageIcon>jjm.one-logo_1024x1024.png</PackageIcon>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <LangVersion>latestmajor</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <LangVersion>latestmajor</LangVersion>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="..\..\LICENSE">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\..\resources\logo\jjm.one-logo_1024x1024.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+    </ItemGroup>
+
+</Project>

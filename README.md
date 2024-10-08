@@ -1,8 +1,12 @@
-# Slack.Webhooks ![Continuous Stuff](https://github.com/mrb0nj/Slack.Webhooks/workflows/Continuous%20Stuff/badge.svg?branch=master) [![NuGet Version](http://img.shields.io/nuget/v/Slack.Webhooks.svg?style=flat)](https://www.nuget.org/packages/Slack.Webhooks/)
+# Slack.Webhooks
 
 Even simpler integration with Slack's Incoming/Outgoing webhooks API for .net
 
-### IMPORTANT
+## Forked Project
+
+This is a fork of **Slack.Webhooks**, which can be found at [https://github.com/mrb0nj/Slack.Webhooks](https://github.com/mrb0nj/Slack.Webhooks).
+
+## IMPORTANT
 
 On Feb 19th 2020 Slack will end support for TLS version 1.0 and 1.1. This means you may (depending on your .NET version) need to force the use of TLS1.2.
 
@@ -12,21 +16,21 @@ If you receive an error stating that "The underlying connection was closed:" it'
 System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 ```
 
-### Change Log
+## Change Log
 
-#### v1.1.4
+### v1.1.4
 
 - Add Block elements to Attachments
 
-#### v1.1.3
+### v1.1.3
 
 - Fixes potential deadlock issues
 
-#### v1.1.2
+### v1.1.2
 
 - Fix SlackMessage.Clone does not clone all properties
 
-#### v1.1.0
+### v1.1.0
 
 - Support Slack's Block Kit with SlackMessage.Blocks property
 - Support Thread replies with SlackMessage.ThreadId property

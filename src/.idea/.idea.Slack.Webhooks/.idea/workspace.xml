@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eb48c1dc-4bda-4d02-98c3-7ab4a368dbfa" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Slack.Webhooks/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/GlobalUsings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.github/workflows/main.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GitVersion.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build.cake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build.ps1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cake.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../slack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/ActionsBlockFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/ActionsBlockFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/BlockFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/BlockFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/ButtonElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/ButtonElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/ConfirmationElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/ConfirmationElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/ContextBlockFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/ContextBlockFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/DatePickerElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/DatePickerElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/ElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/ElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/EmojiShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/EmojiShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/FileBlockFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/FileBlockFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/HeaderBlockFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/HeaderBlockFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/ImageBlockFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/ImageBlockFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/ImageElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/ImageElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/InputBlockFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/InputBlockFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/MultiSelectExternalElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/MultiSelectExternalElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/MultiSelectStaticElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/MultiSelectStaticElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/MultiSelectUsersElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/MultiSelectUsersElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/OptionElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/OptionElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/OptionGroupElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/OptionGroupElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/OverflowElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/OverflowElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/PlainTextInputElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/PlainTextInputElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/Properties/AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/RadioButtonElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/RadioButtonElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/SectionBlockFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/SectionBlockFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/SelectElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/SelectElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/SelectExternalElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/SelectExternalElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/SelectStaticElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/SelectStaticElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/SelectUsersElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/SelectUsersElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/Slack.Webhooks.Tests.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/SlackClientFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/SlackClientFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/SlackMessageFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/SlackMessageFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/TextElementFixtures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.Tests/TextElementFixtures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.Tests/packages.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks.sln" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Action/Confirm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Action/Confirm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Action/Option.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Action/Option.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Action/OptionGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Action/OptionGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Block.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Blocks/Actions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Blocks/Actions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Blocks/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Blocks/Context.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Blocks/Divider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Blocks/Divider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Blocks/File.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Blocks/File.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Blocks/Header.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Blocks/Header.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Blocks/Image.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Blocks/Image.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Blocks/Input.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Blocks/Input.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Blocks/Section.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Blocks/Section.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Elements/Button.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Elements/Button.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Elements/Confirmation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Elements/Confirmation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Elements/DatePicker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Elements/DatePicker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Elements/Element.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Elements/Element.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Elements/Image.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Elements/Image.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Elements/MultiSelect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Elements/MultiSelect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Elements/Option.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Elements/Option.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Elements/OptionGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Elements/OptionGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Elements/Overflow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Elements/Overflow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Elements/PlainTextInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Elements/PlainTextInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Elements/RadioButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Elements/RadioButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Elements/Select.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Elements/Select.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Elements/TextObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Elements/TextObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Emoji.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Emoji.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Enums.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Enums.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/ISlackClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/ISlackClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Interfaces/IActionElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Interfaces/IActionElement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Interfaces/IContextElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Interfaces/IContextElement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Interfaces/IInputElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/Interfaces/IInputElement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Properties/AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Slack.Webhooks.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/Slack.Webhooks.nuspec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/SlackAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/SlackAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/SlackAttachment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/SlackAttachment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/SlackClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/SlackClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/SlackField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/SlackField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slack.Webhooks/SlackMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/jjm.one.Slack.Webhooks/SlackMessage.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2n98TQuTMHlZsLy6gol9jkUeBvP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eb48c1dc-4bda-4d02-98c3-7ab4a368dbfa" name="Changes" comment="" />
+      <created>1728373938774</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1728373938774</updated>
+      <workItem from="1728373939818" duration="2213000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
