@@ -1,0 +1,11 @@
+<Project>
+    <ItemGroup>
+        <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
+        <PackageVersion Include="coverlet.collector" Version="6.0.0"/>
+        <PackageVersion Include="FluentAssertions" Version="6.12.1"/>
+        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.8.0"/>
+        <PackageVersion Include="Moq" Version="4.13.1"/>
+        <PackageVersion Include="xunit" Version="2.5.3"/>
+        <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.3"/>
+    </ItemGroup>
+</Project>

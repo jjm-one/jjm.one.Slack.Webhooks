@@ -1,29 +1,39 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-
+        <TargetFramework>$(DefaultNetCoreTargetFramework)</TargetFramework>
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
+        <Title>$(_ProjectName).Tests</Title>
+        <Description>Unit-Test project for the `jjm.one.Slack.Webhooks` project.</Description>
+        <SignAssembly>false</SignAssembly>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="coverlet.collector" Version="6.0.0"/>
-        <PackageReference Include="FluentAssertions" Version="6.12.1"/>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0"/>
-        <PackageReference Include="Moq" Version="4.13.1"/>
-        <PackageReference Include="xunit" Version="2.5.3"/>
-        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3"/>
+        <PackageReference Include="FluentAssertions"/>
+        <PackageReference Include="Moq"/>
     </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="coverlet.collector">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.NET.Test.Sdk"/>
+        <PackageReference Include="xunit"/>
+        <PackageReference Include="xunit.runner.visualstudio">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
 
     <ItemGroup>
         <Using Include="Xunit"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\jjm.one.Slack.Webhooks\jjm.one.Slack.Webhooks.csproj"/>
+        <ProjectReference Include="..\..\src\jjm.one.Slack.Webhooks\jjm.one.Slack.Webhooks.csproj"/>
     </ItemGroup>
 
 </Project>
