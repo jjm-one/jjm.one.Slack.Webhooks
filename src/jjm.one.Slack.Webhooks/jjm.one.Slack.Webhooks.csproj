@@ -1,16 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>$(DefaultNetCoreTargetFramework);$(AuxNetCoreTargetFramework)</TargetFramework>
+        <TargetFrameworks>$(DefaultNetCoreTargetFramework);$(AuxNetCoreTargetFramework)</TargetFrameworks>
         <PackageId>$(_ProjectName)</PackageId>
         <Title>$(_ProjectName)</Title>
         <AssemblyName>$(_ProjectName)</AssemblyName>
         <RootNamespace>$(_ProjectName)</RootNamespace>
-
         <Description>Even simpler integration with Slack's Incoming/Outgoing webhooks API for .net</Description>
         <PackageTags>slack, csharp</PackageTags>
-
-        
         <SignAssembly>True</SignAssembly>
         <AssemblyOriginatorKeyFile>..\..\jjm.one.Slack.Webhooks.SignKey.snk</AssemblyOriginatorKeyFile>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
