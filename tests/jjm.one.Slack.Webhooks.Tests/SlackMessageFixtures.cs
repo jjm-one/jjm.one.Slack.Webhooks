@@ -8,10 +8,10 @@ public class SlackMessageFixtures
     public void ShouldCloneAllProperties()
     {
         //arrange
-        var message = GetSlackMessage();
+        SlackMessage message = GetSlackMessage();
 
         //act
-        var clonedMessage = message.Clone();
+        SlackMessage clonedMessage = message.Clone();
 
         //assert
         Assert.Equal(message.Text, clonedMessage.Text);

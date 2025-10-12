@@ -18,14 +18,17 @@ public class SlackMessage
     public string ResponseType { get; set; }
 
     /// <summary>
-    ///     Used only when creating messages in response to a button action invocation. When set to true, the inciting message
-    ///     will be replaced by this message you're providing. When false, the message you're providing is considered a brand
+    ///     Used only when creating messages in response to a button action invocation. When set to true,
+    ///     the inciting message
+    ///     will be replaced by this message you're providing. When false, the message you're providing is
+    ///     considered a brand
     ///     new message.
     /// </summary>
     public bool ReplaceOriginal { get; set; }
 
     /// <summary>
-    ///     Used only when creating messages in response to a button action invocation. When set to true, the inciting message
+    ///     Used only when creating messages in response to a button action invocation. When set to true,
+    ///     the inciting message
     ///     will be deleted and if a message is provided, it will be posted as a brand new message.
     /// </summary>
     public bool DeleteOriginal { get; set; }
@@ -128,17 +131,11 @@ public class SlackMessage
     ///     Overidden by the presence of IconUrl
     /// </summary>
     /// <returns>false when IconUrl is present otherwise true.</returns>
-    public bool ShouldSerializeIconEmoji()
-    {
-        return IconUrl == null && IconEmoji != Emoji.None;
-    }
+    public bool ShouldSerializeIconEmoji() => IconUrl == null && IconEmoji != Emoji.None;
 
     /// <summary>
     ///     Serialize SlackMessage to a JSON string
     /// </summary>
     /// <returns>JSON formatted string</returns>
-    public string AsJson()
-    {
-        return SlackClient.SerializeObject(this);
-    }
+    public string AsJson() => SlackClient.SerializeObject(this);
 }

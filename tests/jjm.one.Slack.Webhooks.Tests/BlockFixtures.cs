@@ -7,7 +7,8 @@ public class BlockFixtures
 {
     [Theory]
     [MemberData(nameof(GetData))]
-    public void ShouldHaveBlockTypeAndBlockId(Block block, string expectedType, string expectedBlockId)
+    public void ShouldHaveBlockTypeAndBlockId(Block block, string expectedType,
+        string expectedBlockId)
     {
         // arrange/act
         var payload = SlackClient.SerializeObject(block);

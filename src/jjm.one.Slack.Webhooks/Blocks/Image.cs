@@ -21,7 +21,8 @@ public class Image : Block, IContextElement
     public string ImageUrl { get; set; }
 
     /// <summary>
-    ///     A plain-text summary of the image. This should not contain any markup. Maximum length for this field is 2000
+    ///     A plain-text summary of the image. This should not contain any markup. Maximum length for this
+    ///     field is 2000
     ///     characters.
     /// </summary>
     public string AltText { get; set; }

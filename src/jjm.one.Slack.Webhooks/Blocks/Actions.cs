@@ -15,7 +15,8 @@ public class Actions : Block
     }
 
     /// <summary>
-    ///     An array of interactive element objects - <see cref="Elements.Button" />, <see cref="Elements.Select" /> menus,
+    ///     An array of interactive element objects - <see cref="Elements.Button" />,
+    ///     <see cref="Elements.Select" /> menus,
     ///     <see cref="Elements.Overflow" /> menus, or <see cref="Elements.DatePicker" />.
     ///     There is a maximum of 5 elements in each action block.
     /// </summary>

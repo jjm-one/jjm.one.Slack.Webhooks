@@ -3,9 +3,11 @@ using jjm.one.Slack.Webhooks.Interfaces;
 namespace jjm.one.Slack.Webhooks.Elements;
 
 /// <summary>
-///     Works with <see cref="Blocks.Section" />, <see cref="Blocks.Actions" /> and <see cref="Blocks.Input" /> blocks.
+///     Works with <see cref="Blocks.Section" />, <see cref="Blocks.Actions" /> and
+///     <see cref="Blocks.Input" /> blocks.
 ///     An element which lets users easily select a date from a calendar style UI.
-///     To use interactive components like this, you will need to make some changes to prepare your app. Read our guide to
+///     To use interactive components like this, you will need to make some changes to prepare your
+///     app. Read our guide to
 ///     enabling interactivity.
 ///     https://api.slack.com/interactivity/handling
 /// </summary>
@@ -27,19 +29,22 @@ public class DatePicker : Element, IActionElement, IInputElement
     public string ActionId { get; set; }
 
     /// <summary>
-    ///     A <see cref="TextObject.TextType.PlainText" /> only <see cref="TextObject" /> that defines the placeholder text
+    ///     A <see cref="TextObject.TextType.PlainText" /> only <see cref="TextObject" /> that defines the
+    ///     placeholder text
     ///     shown on the datepicker.
     ///     Maximum length for the text in this field is 150 characters.
     /// </summary>
     public TextObject Placeholder { get; set; }
 
     /// <summary>
-    ///     The initial date that is selected when the element is loaded. This should be in the format YYYY-MM-DD.
+    ///     The initial date that is selected when the element is loaded. This should be in the format
+    ///     YYYY-MM-DD.
     /// </summary>
     public string InitialDate { get; set; }
 
     /// <summary>
-    ///     A <see cref="Confirmation" /> object that defines an optional confirmation dialog that appears after a date is
+    ///     A <see cref="Confirmation" /> object that defines an optional confirmation dialog that appears
+    ///     after a date is
     ///     selected.
     /// </summary>
     public Confirmation Confirm { get; set; }

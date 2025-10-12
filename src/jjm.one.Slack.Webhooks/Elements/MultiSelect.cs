@@ -4,7 +4,8 @@ namespace jjm.one.Slack.Webhooks.Elements;
 
 /// <summary>
 ///     Works with <see cref="Blocks.Section" /> and <see cref="Blocks.Input" /> blocks.
-///     This is the simplest form of select menu, with a static list of options passed in when defining the element.
+///     This is the simplest form of select menu, with a static list of options passed in when defining
+///     the element.
 /// </summary>
 public class MultiSelectStatic : Select, IInputElement
 {
@@ -36,14 +37,17 @@ public class MultiSelectStatic : Select, IInputElement
 
 /// <summary>
 ///     Works with <see cref="Blocks.Section" /> and <see cref="Blocks.Input" /> blocks.
-///     This menu will load its options from an external data source, allowing for a dynamic list of options.
+///     This menu will load its options from an external data source, allowing for a dynamic list of
+///     options.
 ///     Setup
 ///     To use this menu type, you'll need to configure your app first:
 ///     Goto your app's settings page and choose the Interactive Components feature menu.
 ///     Add a URL to the Options Load URL under Select Menus.
 ///     Save changes.
-///     Each time a menu of this type is opened or the user starts typing in the typeahead field, we'll send a request to
-///     your specified URL. Your app should return an HTTP 200 OK response, along with an application/json post body with
+///     Each time a menu of this type is opened or the user starts typing in the typeahead field, we'll
+///     send a request to
+///     your specified URL. Your app should return an HTTP 200 OK response, along with an
+///     application/json post body with
 ///     an object containing either an options array, or an option_groups array.
 /// </summary>
 public class MultiSelectExternal : Select, IInputElement
@@ -70,7 +74,8 @@ public class MultiSelectExternal : Select, IInputElement
 
 /// <summary>
 ///     Works with <see cref="Blocks.Section" /> and <see cref="Blocks.Input" /> blocks.
-///     This multi-select menu will populate its options with a list of Slack users visible to the current user in the
+///     This multi-select menu will populate its options with a list of Slack users visible to the
+///     current user in the
 ///     active workspace.
 /// </summary>
 public class MultiSelectUsers : Select, IInputElement
@@ -87,7 +92,8 @@ public class MultiSelectUsers : Select, IInputElement
 
 /// <summary>
 ///     Works with <see cref="Blocks.Section" /> and <see cref="Blocks.Input" /> blocks.
-///     This multi-select menu will populate its options with a list of public and private channels, DMs, and MPIMs visible
+///     This multi-select menu will populate its options with a list of public and private channels,
+///     DMs, and MPIMs visible
 ///     to the current user in the active workspace.
 /// </summary>
 public class MultiSelectConversations : Select, IInputElement
@@ -104,7 +110,8 @@ public class MultiSelectConversations : Select, IInputElement
 
 /// <summary>
 ///     Works with <see cref="Blocks.Section" /> and <see cref="Blocks.Input" /> blocks.
-///     This multi-select menu will populate its options with a list of public channels visible to the current user in the
+///     This multi-select menu will populate its options with a list of public channels visible to the
+///     current user in the
 ///     active workspace.
 /// </summary>
 public class MultiSelectChannels : Select, IInputElement

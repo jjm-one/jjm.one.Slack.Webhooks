@@ -15,7 +15,8 @@ public class Context : Block
     }
 
     /// <summary>
-    ///     An array of <see cref="Elements.Image" /> elements and <see cref="Elements.TextObject" />s. Maximum number of items
+    ///     An array of <see cref="Elements.Image" /> elements and <see cref="Elements.TextObject" />s.
+    ///     Maximum number of items
     ///     is 10.
     /// </summary>
     public List<IContextElement> Elements { get; set; }

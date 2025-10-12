@@ -9,7 +9,8 @@ public class HeaderBlockFixtures
     public void ShouldSerializeText()
     {
         // arrange
-        var textObject = new TextObject { Text = "This is text", Type = TextObject.TextType.PlainText };
+        var textObject = new TextObject
+            { Text = "This is text", Type = TextObject.TextType.PlainText };
         var header = new Header { Text = textObject };
 
         // act

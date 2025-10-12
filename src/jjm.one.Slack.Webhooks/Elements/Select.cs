@@ -17,22 +17,26 @@ public class Select : Element
     public string ActionId { get; set; }
 
     /// <summary>
-    ///     A <see cref="TextObject.TextType.PlainText" /> only <see cref="TextObject" /> that defines the placeholder text
+    ///     A <see cref="TextObject.TextType.PlainText" /> only <see cref="TextObject" /> that defines the
+    ///     placeholder text
     ///     shown on the menu.
     ///     Maximum length for the text in this field is 150 characters.
     /// </summary>
     public TextObject Placeholder { get; set; }
 
     /// <summary>
-    ///     A <see cref="Confirmation" /> object that defines an optional confirmation dialog that appears before the choice(s)
+    ///     A <see cref="Confirmation" /> object that defines an optional confirmation dialog that appears
+    ///     before the choice(s)
     ///     are submitted
     /// </summary>
     public Confirmation Confirm { get; set; }
 }
 
 /// <summary>
-///     Works with <see cref="Blocks.Section" />, <see cref="Blocks.Actions" /> and <see cref="Blocks.Input" /> blocks.
-///     This is the simplest form of select menu, with a static list of options passed in when defining the element.
+///     Works with <see cref="Blocks.Section" />, <see cref="Blocks.Actions" /> and
+///     <see cref="Blocks.Input" /> blocks.
+///     This is the simplest form of select menu, with a static list of options passed in when defining
+///     the element.
 /// </summary>
 public class SelectStatic : Select, IActionElement, IInputElement
 {
@@ -63,15 +67,19 @@ public class SelectStatic : Select, IActionElement, IInputElement
 }
 
 /// <summary>
-///     Works with <see cref="Blocks.Section" />, <see cref="Blocks.Actions" /> and <see cref="Blocks.Input" /> blocks.
-///     This menu will load its options from an external data source, allowing for a dynamic list of options.
+///     Works with <see cref="Blocks.Section" />, <see cref="Blocks.Actions" /> and
+///     <see cref="Blocks.Input" /> blocks.
+///     This menu will load its options from an external data source, allowing for a dynamic list of
+///     options.
 ///     Setup
 ///     To use this menu type, you'll need to configure your app first:
 ///     Goto your app's settings page and choose the Interactive Components feature menu.
 ///     Add a URL to the Options Load URL under Select Menus.
 ///     Save changes.
-///     Each time a menu of this type is opened or the user starts typing in the typeahead field, we'll send a request to
-///     your specified URL. Your app should return an HTTP 200 OK response, along with an application/json post body with
+///     Each time a menu of this type is opened or the user starts typing in the typeahead field, we'll
+///     send a request to
+///     your specified URL. Your app should return an HTTP 200 OK response, along with an
+///     application/json post body with
 ///     an object containing either an options array, or an option_groups array.
 /// </summary>
 public class SelectExternal : Select, IActionElement, IInputElement
@@ -97,8 +105,10 @@ public class SelectExternal : Select, IActionElement, IInputElement
 }
 
 /// <summary>
-///     Works with <see cref="Blocks.Section" />, <see cref="Blocks.Actions" /> and <see cref="Blocks.Input" /> blocks.
-///     This select menu will populate its options with a list of Slack users visible to the current user in the active
+///     Works with <see cref="Blocks.Section" />, <see cref="Blocks.Actions" /> and
+///     <see cref="Blocks.Input" /> blocks.
+///     This select menu will populate its options with a list of Slack users visible to the current
+///     user in the active
 ///     workspace.
 /// </summary>
 public class SelectUsers : Select, IActionElement, IInputElement
@@ -114,8 +124,10 @@ public class SelectUsers : Select, IActionElement, IInputElement
 }
 
 /// <summary>
-///     Works with <see cref="Blocks.Section" />, <see cref="Blocks.Actions" /> and <see cref="Blocks.Input" /> blocks.
-///     This select menu will populate its options with a list of public and private channels, DMs, and MPIMs visible to
+///     Works with <see cref="Blocks.Section" />, <see cref="Blocks.Actions" /> and
+///     <see cref="Blocks.Input" /> blocks.
+///     This select menu will populate its options with a list of public and private channels, DMs, and
+///     MPIMs visible to
 ///     the current user in the active workspace.
 /// </summary>
 public class SelectConversations : Select, IActionElement, IInputElement
@@ -131,8 +143,10 @@ public class SelectConversations : Select, IActionElement, IInputElement
 }
 
 /// <summary>
-///     Works with <see cref="Blocks.Section" />, <see cref="Blocks.Actions" /> and <see cref="Blocks.Input" /> blocks.
-///     This select menu will populate its options with a list of public channels visible to the current user in the active
+///     Works with <see cref="Blocks.Section" />, <see cref="Blocks.Actions" /> and
+///     <see cref="Blocks.Input" /> blocks.
+///     This select menu will populate its options with a list of public channels visible to the
+///     current user in the active
 ///     workspace.
 /// </summary>
 public class SelectChannels : Select, IActionElement, IInputElement

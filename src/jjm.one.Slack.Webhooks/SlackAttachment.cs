@@ -8,15 +8,18 @@ namespace jjm.one.Slack.Webhooks;
 public class SlackAttachment
 {
     /// <summary>
-    ///     Required text summary of the attachment that is shown by clients that understand attachments but choose not to show
+    ///     Required text summary of the attachment that is shown by clients that understand attachments
+    ///     but choose not to show
     ///     them.
     /// </summary>
     public string Fallback { get; set; }
 
     /// <summary>
-    ///     The provided string will act as a unique identifier for the collection of buttons within the attachment. It will be
+    ///     The provided string will act as a unique identifier for the collection of buttons within the
+    ///     attachment. It will be
     ///     sent
-    ///     back to your message button action URL with each invoked action. This field is required when the attachment
+    ///     back to your message button action URL with each invoked action. This field is required when
+    ///     the attachment
     ///     contains
     ///     message buttons. It is key to identifying the interaction you're working with.
     /// </summary>
@@ -92,24 +95,29 @@ public class SlackAttachment
     public List<string> MarkdownIn { get; set; }
 
     /// <summary>
-    ///     Add some brief text to help contextualize and identify an attachment. Limited to 300 characters, and may be
+    ///     Add some brief text to help contextualize and identify an attachment. Limited to 300
+    ///     characters, and may be
     ///     truncated further when displayed to users in environments with limited screen real estate.
     /// </summary>
     public string Footer { get; set; }
 
     /// <summary>
-    ///     To render a small icon beside your footer text, provide a publicly accessible URL string in the footer_icon field.
+    ///     To render a small icon beside your footer text, provide a publicly accessible URL string in the
+    ///     footer_icon field.
     ///     You must also provide a footer for the field to be recognized.
-    ///     We'll render what you provide at 16px by 16px. It's best to use an image that is similarly sized.
+    ///     We'll render what you provide at 16px by 16px. It's best to use an image that is similarly
+    ///     sized.
     ///     Example: "https://platform.slack-edge.com/img/default_application_icon.png"
     /// </summary>
     public string FooterIcon { get; set; }
 
     /// <summary>
     ///     Does your attachment relate to something happening at a specific time?
-    ///     By providing the ts field with an integer value in "epoch time", the attachment will display an additional
+    ///     By providing the ts field with an integer value in "epoch time", the attachment will display an
+    ///     additional
     ///     timestamp value as part of the attachment's footer.
-    ///     Use ts when referencing articles or happenings. Your message will have its own timestamp when published.
+    ///     Use ts when referencing articles or happenings. Your message will have its own timestamp when
+    ///     published.
     ///     Example: Providing 123456789 would result in a rendered timestamp of Nov 29th, 1973.
     /// </summary>
     [JsonProperty(PropertyName = "ts")]
@@ -144,8 +152,5 @@ public class SlackAttachment
     /// <seealso cref="Section" />
     public List<Block> Blocks { get; set; }
 
-    public bool ShouldSerializeTimestamp()
-    {
-        return Timestamp != 0;
-    }
+    public bool ShouldSerializeTimestamp() => Timestamp != 0;
 }

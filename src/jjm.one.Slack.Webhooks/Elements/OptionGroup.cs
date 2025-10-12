@@ -16,13 +16,16 @@ namespace jjm.one.Slack.Webhooks.Elements;
 public class OptionGroup
 {
     /// <summary>
-    ///     A <see cref="TextObject.TextType.PlainText" /> only <see cref="TextObject" /> that defines the label shown above
-    ///     this group of options. Maximum length for the <see cref="TextObject.Text" /> in this field is 75 characters.
+    ///     A <see cref="TextObject.TextType.PlainText" /> only <see cref="TextObject" /> that defines the
+    ///     label shown above
+    ///     this group of options. Maximum length for the <see cref="TextObject.Text" /> in this field is
+    ///     75 characters.
     /// </summary>
     public TextObject Label { get; set; }
 
     /// <summary>
-    ///     An array of <see cref="Option" /> objects that belong to this specific group. Maximum of 100 items.
+    ///     An array of <see cref="Option" /> objects that belong to this specific group. Maximum of 100
+    ///     items.
     /// </summary>
     public IList<Option> Options { get; set; }
 }

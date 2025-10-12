@@ -1,39 +1,39 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>$(DefaultNetCoreTargetFramework)</TargetFramework>
-        <IsPackable>false</IsPackable>
-        <IsTestProject>true</IsTestProject>
-        <Title>$(_ProjectName).Tests</Title>
-        <Description>Unit-Test project for the `jjm.one.Slack.Webhooks` project.</Description>
-        <SignAssembly>false</SignAssembly>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>$(DefaultNetCoreTargetFramework)</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <Title>$(_ProjectName).Tests</Title>
+    <Description>Unit-Test project for the `jjm.one.Slack.Webhooks` project.</Description>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="FluentAssertions"/>
-        <PackageReference Include="Moq"/>
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions"/>
+    <PackageReference Include="Moq"/>
+  </ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="coverlet.collector">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="Microsoft.NET.Test.Sdk"/>
-        <PackageReference Include="xunit"/>
-        <PackageReference Include="xunit.runner.visualstudio">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk"/>
+    <PackageReference Include="xunit"/>
+    <PackageReference Include="xunit.runner.visualstudio">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 
 
-    <ItemGroup>
-        <Using Include="Xunit"/>
-    </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit"/>
+  </ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\..\src\jjm.one.Slack.Webhooks\jjm.one.Slack.Webhooks.csproj"/>
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\jjm.one.Slack.Webhooks\jjm.one.Slack.Webhooks.csproj"/>
+  </ItemGroup>
 
 </Project>
