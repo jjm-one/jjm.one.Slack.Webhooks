@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/macos,windows,linux,visualstudio,visualstudiocode,jetbrains+all,rider,dotnetcore
-# Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,linux,visualstudio,visualstudiocode,jetbrains+all,rider,dotnetcore
+# Created by https://www.toptal.com/developers/gitignore/api/linux,macos,rider,windows,dotnetcore,visualstudio,jetbrains+all,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=linux,macos,rider,windows,dotnetcore,visualstudio,jetbrains+all,visualstudiocode
 
 ### DotnetCore ###
 # .NET Core build folders
@@ -629,4 +629,4 @@ FodyWeavers.xsd
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 
-# End of https://www.toptal.com/developers/gitignore/api/macos,windows,linux,visualstudio,visualstudiocode,jetbrains+all,rider,dotnetcore
+# End of https://www.toptal.com/developers/gitignore/api/linux,macos,rider,windows,dotnetcore,visualstudio,jetbrains+all,visualstudiocode
