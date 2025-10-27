@@ -7,7 +7,7 @@
 
   <PropertyGroup>
     <DefaultNetCoreTargetFramework>net9.0</DefaultNetCoreTargetFramework>
-    <AuxNetCoreTargetFramework>netstandard2.0;netstandard2.1;net8.0</AuxNetCoreTargetFramework>
+    <AuxNetCoreTargetFramework>net8.0</AuxNetCoreTargetFramework>
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
