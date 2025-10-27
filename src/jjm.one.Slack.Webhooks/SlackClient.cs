@@ -9,7 +9,7 @@ public class SlackClient : ISlackClient, IDisposable
     private const string POST_SUCCESS = "ok";
 
     private static readonly DefaultContractResolver resolver = new()
-        { NamingStrategy = new SnakeCaseNamingStrategy() };
+    { NamingStrategy = new SnakeCaseNamingStrategy() };
 
     private static readonly JsonSerializerSettings? serializerSettings = new()
     {
@@ -19,16 +19,17 @@ public class SlackClient : ISlackClient, IDisposable
 
     private readonly HttpClient _httpClient;
     private readonly int _timeout = 100;
-    private readonly Uri? _webhookUri;
+    private readonly Uri _webhookUri;
 
     public SlackClient(string webhookUrl, int timeout = 100, HttpClient? httpClient = null)
     {
         _httpClient = httpClient ?? new HttpClient();
-        if (!Uri.TryCreate(webhookUrl, UriKind.Absolute, out _webhookUri))
+        if (!Uri.TryCreate(webhookUrl, UriKind.Absolute, out var webhookUri))
         {
             throw new ArgumentException("Please enter a valid webhook url");
         }
 
+        _webhookUri = webhookUri;
         _timeout = timeout;
     }
 
@@ -43,6 +44,11 @@ public class SlackClient : ISlackClient, IDisposable
 
     public bool PostToChannels(SlackMessage message, IEnumerable<string> channels)
     {
+        if (message.Text == null)
+        {
+            throw new ArgumentException("The 'Text' property of SlackMessage is required.");
+        }
+
         return channels.DefaultIfEmpty(message.Channel)
             .Select(message.Clone)
             .Select(Post).All(r => r);
@@ -51,6 +57,11 @@ public class SlackClient : ISlackClient, IDisposable
     public IEnumerable<Task<bool>> PostToChannelsAsync(SlackMessage message,
         IEnumerable<string> channels)
     {
+        if (message.Text == null)
+        {
+            throw new ArgumentException("The 'Text' property of SlackMessage is required.");
+        }
+
         return channels.DefaultIfEmpty(message.Channel)
             .Select(message.Clone)
             .Select(PostAsync);
@@ -61,6 +72,11 @@ public class SlackClient : ISlackClient, IDisposable
 
     public async Task<bool> PostAsync(SlackMessage slackMessage, bool configureAwait = true)
     {
+        if (slackMessage.Text == null)
+        {
+            throw new ArgumentException("The 'Text' property of SlackMessage is required.");
+        }
+
         using (var request = new HttpRequestMessage(HttpMethod.Post, _webhookUri))
         {
             request.Content =

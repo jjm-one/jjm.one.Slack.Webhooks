@@ -19,5 +19,5 @@ public class Header : Block
     ///     The <see cref="Text" /> for the block, in the form of a <see cref="TextObject" />.
     ///     Maximum length for the <c>text</c> in this field is 150 characters.
     /// </summary>
-    public TextObject Text { get; set; }
+    public required TextObject Text { get; set; }
 }

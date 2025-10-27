@@ -1,7 +1,7 @@
 namespace jjm.one.Slack.Webhooks.Elements;
 
 /// <summary>
-///     Provides a way to group options in a <see cref="Elements.Select" />  menu or multi-select menu.
+///     Provides a way to group options in a <see cref="Elements.Select" /> menu or multi-select menu.
 /// </summary>
 /// <seealso cref="Elements.SelectUsers" />
 /// <seealso cref="Elements.SelectChannels" />
@@ -21,11 +21,11 @@ public class OptionGroup
     ///     this group of options. Maximum length for the <see cref="TextObject.Text" /> in this field is
     ///     75 characters.
     /// </summary>
-    public TextObject Label { get; set; }
+    public required TextObject Label { get; set; }
 
     /// <summary>
     ///     An array of <see cref="Option" /> objects that belong to this specific group. Maximum of 100
     ///     items.
     /// </summary>
-    public IList<Option> Options { get; set; }
+    public required IList<Option> Options { get; set; }
 }

@@ -31,18 +31,18 @@ public class Overflow : Element, IActionElement
     ///     Should be unique among all other <see cref="ActionId" />s used elsewhere by your app.
     ///     Maximum length for this field is 255 characters.
     /// </summary>
-    public string ActionId { get; set; }
+    public required string ActionId { get; set; }
 
     /// <summary>
     ///     An array of <see cref="Option" /> objects to display in the menu. Maximum number of options is
     ///     5, minimum is 2.
     /// </summary>
-    public IList<Option> Options { get; set; }
+    public required IList<Option> Options { get; set; }
 
     /// <summary>
     ///     A <see cref="Confirmation" /> object that defines an optional confirmation dialog that appears
     ///     after a menu item is
     ///     selected.
     /// </summary>
-    public Confirmation Confirm { get; set; }
+    public Confirmation? Confirm { get; set; }
 }

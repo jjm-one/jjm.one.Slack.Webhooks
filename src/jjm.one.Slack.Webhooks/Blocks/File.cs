@@ -15,7 +15,7 @@ public class File : Block
     /// <summary>
     ///     The external unique ID for this file.
     /// </summary>
-    public string ExternalId { get; set; }
+    public required string ExternalId { get; set; }
 
     /// <summary>
     ///     At the moment, <see cref="Source" /> will always be "remote" for a remote file.

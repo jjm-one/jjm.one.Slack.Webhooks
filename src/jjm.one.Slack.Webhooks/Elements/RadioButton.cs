@@ -23,24 +23,24 @@ public class RadioButtons : Element
     ///     Should be unique among all other <see cref="ActionId" />s used elsewhere by your app.
     ///     Maximum length for this field is 255 characters.
     /// </summary>
-    public string ActionId { get; set; }
+    public required string ActionId { get; set; }
 
     /// <summary>
     ///     An array of <see cref="Option" /> objects.
     /// </summary>
-    public IList<Option> Options { get; set; }
+    public required IList<Option> Options { get; set; }
 
     /// <summary>
     ///     An <see cref="Option" /> object that exactly matches one of the options within
     ///     <see cref="Options" />. This option
     ///     will be selected when the radio button group initially loads.
     /// </summary>
-    public Option InitialOption { get; set; }
+    public Option? InitialOption { get; set; }
 
     /// <summary>
     ///     A <see cref="Confirmation" /> object that defines an optional confirmation dialog that appears
     ///     after clicking one
     ///     of the radio buttons in this element.
     /// </summary>
-    public Confirmation Confirm { get; set; }
+    public Confirmation? Confirm { get; set; }
 }

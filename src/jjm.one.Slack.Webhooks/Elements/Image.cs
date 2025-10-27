@@ -20,10 +20,10 @@ public class Image : Element, IContextElement
     /// <summary>
     ///     The URL of the image to be displayed.
     /// </summary>
-    public string ImageUrl { get; set; }
+    public required string ImageUrl { get; set; }
 
     /// <summary>
     ///     A plain-text summary of the image. This should not contain any markup.
     /// </summary>
-    public string AltText { get; set; }
+    public required string AltText { get; set; }
 }

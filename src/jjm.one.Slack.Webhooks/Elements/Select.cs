@@ -14,7 +14,7 @@ public class Select : Element
     ///     Should be unique among all other <see cref="ActionId" />s used elsewhere by your app.
     ///     Maximum length for this field is 255 characters.
     /// </summary>
-    public string ActionId { get; set; }
+    public required string ActionId { get; set; }
 
     /// <summary>
     ///     A <see cref="TextObject.TextType.PlainText" /> only <see cref="TextObject" /> that defines the
@@ -22,14 +22,14 @@ public class Select : Element
     ///     shown on the menu.
     ///     Maximum length for the text in this field is 150 characters.
     /// </summary>
-    public TextObject Placeholder { get; set; }
+    public TextObject? Placeholder { get; set; }
 
     /// <summary>
     ///     A <see cref="Confirmation" /> object that defines an optional confirmation dialog that appears
     ///     before the choice(s)
-    ///     are submitted
+    ///     are submitted.
     /// </summary>
-    public Confirmation Confirm { get; set; }
+    public Confirmation? Confirm { get; set; }
 }
 
 /// <summary>
@@ -49,21 +49,21 @@ public class SelectStatic : Select, IActionElement, IInputElement
     ///     Maximum number of options is 100.
     ///     If <see cref="OptionGroups" /> is specified, this field should not be.
     /// </summary>
-    public List<Option> Options { get; set; }
+    public required List<Option> Options { get; set; }
 
     /// <summary>
     ///     An array of <see cref="OptionGroups" /> objects.
     ///     Maximum number of options is 100.
     ///     If <see cref="Option" /> is specified, this field should not be.
     /// </summary>
-    public List<OptionGroup> OptionGroups { get; set; }
+    public List<OptionGroup>? OptionGroups { get; set; }
 
     /// <summary>
-    ///     A single <see cref="Option" /> that exactly match one
+    ///     A single <see cref="Option" /> that exactly matches one
     ///     of the options within <see cref="Options" /> or <see cref="OptionGroups" />.
     ///     This option will be selected when the menu initially loads.
     /// </summary>
-    public Option InitialOption { get; set; }
+    public Option? InitialOption { get; set; }
 }
 
 /// <summary>
@@ -94,14 +94,14 @@ public class SelectExternal : Select, IActionElement, IInputElement
     ///     use the <see cref="MinQueryLength" /> attribute to tell Slack the fewest
     ///     number of typed characters required before dispatch.
     /// </summary>
-    public int MinQueryLength { get; set; }
+    public int? MinQueryLength { get; set; }
 
     /// <summary>
-    ///     A single <see cref="Option" /> that exactly match one
+    ///     A single <see cref="Option" /> that exactly matches one
     ///     of the options within <see cref="Options" /> or <see cref="OptionGroups" />.
     ///     This option will be selected when the menu initially loads.
     /// </summary>
-    public Option InitialOption { get; set; }
+    public Option? InitialOption { get; set; }
 }
 
 /// <summary>
@@ -120,7 +120,7 @@ public class SelectUsers : Select, IActionElement, IInputElement
     /// <summary>
     ///     The user ID of any valid user to be pre-selected when the menu loads.
     /// </summary>
-    public string InitialUser { get; set; }
+    public string? InitialUser { get; set; }
 }
 
 /// <summary>
@@ -139,7 +139,7 @@ public class SelectConversations : Select, IActionElement, IInputElement
     /// <summary>
     ///     The ID of any valid conversation to be pre-selected when the menu loads.
     /// </summary>
-    public string InitialConversation { get; set; }
+    public string? InitialConversation { get; set; }
 }
 
 /// <summary>
@@ -158,5 +158,5 @@ public class SelectChannels : Select, IActionElement, IInputElement
     /// <summary>
     ///     The ID of any valid public channel to be pre-selected when the menu loads.
     /// </summary>
-    public string InitialChannel { get; set; }
+    public string? InitialChannel { get; set; }
 }

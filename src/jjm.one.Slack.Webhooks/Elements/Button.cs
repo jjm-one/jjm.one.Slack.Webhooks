@@ -25,7 +25,7 @@ public class Button : Element, IActionElement
     ///     <see cref="TextObject.TextType.PlainText" />. Maximum length for the text in this field is 75
     ///     characters.
     /// </summary>
-    public TextObject Text { get; set; }
+    public required TextObject Text { get; set; }
 
     /// <summary>
     ///     An identifier for this action. You can use this when you receive an interaction payload
@@ -34,7 +34,7 @@ public class Button : Element, IActionElement
     ///     Maximum length for this field is 255 characters.
     ///     https://api.slack.com/interactivity/handling#payloads
     /// </summary>
-    public string ActionId { get; set; }
+    public required string ActionId { get; set; }
 
     /// <summary>
     ///     A URL to load in the user's browser when the button is clicked.
@@ -44,14 +44,14 @@ public class Button : Element, IActionElement
     ///     https://api.slack.com/interactivity/handling#payloads
     ///     https://api.slack.com/interactivity/handling#acknowledgment_response
     /// </summary>
-    public string Url { get; set; }
+    public string? Url { get; set; }
 
     /// <summary>
     ///     The value to send along with the interaction payload. Maximum length for this field is 2000
     ///     characters.
     ///     https://api.slack.com/interactivity/handling#payloads
     /// </summary>
-    public string Value { get; set; }
+    public string? Value { get; set; }
 
     /// <summary>
     ///     Decorates buttons with alternative visual color schemes. Use this option with restraint.
@@ -63,11 +63,11 @@ public class Button : Element, IActionElement
     ///     more sparingly than "primary".
     ///     If you don't include this field, the default button style will be used.
     /// </summary>
-    public string Style { get; set; }
+    public string? Style { get; set; }
 
     /// <summary>
     ///     A <see cref="Confirmation" /> object that defines an optional confirmation dialog after the
     ///     button is clicked.
     /// </summary>
-    public Confirmation Confirm { get; set; }
+    public Confirmation? Confirm { get; set; }
 }

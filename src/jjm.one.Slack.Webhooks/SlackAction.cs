@@ -12,7 +12,7 @@ public class SlackAction
     ///     The name will be returned to your Action URL along with
     ///     the message's callback_id when this action is invoked.
     /// </summary>
-    public string Name { get; set; }
+    public required string Name { get; set; }
 
     /// <summary>
     ///     Provide button when this action is a message button or
@@ -27,7 +27,7 @@ public class SlackAction
     ///     to keep these short and decisive. Use a maximum of 30
     ///     characters or so for best results across form factors.
     /// </summary>
-    public string Text { get; set; }
+    public required string Text { get; set; }
 
     /// <summary>
     ///     Provide a string identifying this specific action.
@@ -37,14 +37,14 @@ public class SlackAction
     ///     used to differentiate intent. Your value may contain
     ///     up to 2000 characters.
     /// </summary>
-    public string Value { get; set; }
+    public string? Value { get; set; }
 
     /// <summary>
     ///     Provide a string identifying the URL for a link button.
     ///     Unlike message buttons, link buttons don't dispatch actions
     ///     to your interactive components request URL.
     /// </summary>
-    public string Url { get; set; }
+    public string? Url { get; set; }
 
     /// <summary>
     ///     Used only with message buttons, this decorates buttons
@@ -69,32 +69,32 @@ public class SlackAction
     ///     data_source is static or otherwise unspecified. A maximum of 100
     ///     options can be provided in each menu.
     /// </summary>
-    public List<Option> Options { get; set; }
+    public List<Option>? Options { get; set; }
 
     /// <summary>
     ///     Used only with message menus. An alternate, semi-hierarchal way to
     ///     list available options. Provide an array of option group definitions.
     ///     This replaces and supersedes the options array.
     /// </summary>
-    public List<OptionGroup> OptionGroups { get; set; }
+    public List<OptionGroup>? OptionGroups { get; set; }
 
     /// <summary>
     ///     If provided, the first element of this array will be set as the
     ///     pre-selected option for this menu. Any additional elements will be ignored.
     /// </summary>
-    public List<Option> SelectedOptions { get; set; }
+    public List<Option>? SelectedOptions { get; set; }
 
     /// <summary>
     ///     Only applies when data_source is set to external. If present, Slack will
     ///     wait till the specified number of characters are entered before sending
     ///     a request to your app's external suggestions API endpoint. Defaults to 1.
     /// </summary>
-    public int MinQueryLength { get; set; }
+    public int? MinQueryLength { get; set; }
 
     /// <summary>
     ///     Protect users from destructive actions or particularly distinguished decisions
     ///     by asking them to confirm their button click one more time.
     ///     Use confirmation dialogs with care.
     /// </summary>
-    public Confirm Confirm { get; set; }
+    public Confirm? Confirm { get; set; }
 }

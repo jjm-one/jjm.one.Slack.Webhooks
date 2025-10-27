@@ -9,12 +9,12 @@
 ///     include up to 50 blocks in each message.
 ///     https://api.slack.com/messaging/composing/layouts
 /// </summary>
-/// <seealso cref="Actions" />
-/// <seealso cref="Context" />
-/// <seealso cref="Divider" />
+/// <seealso cref="Blocks.Actions" />
+/// <seealso cref="Blocks.Context" />
+/// <seealso cref="Blocks.Divider" />
 /// <seealso cref="File" />
 /// <seealso cref="Image" />
-/// <seealso cref="Input" />
+/// <seealso cref="Blocks.Input" />
 /// <seealso cref="Section" />
 public class Block
 {
@@ -33,5 +33,5 @@ public class Block
     ///     action.
     ///     If not specified, one will be generated. Maximum length for this field is 255 characters.
     /// </summary>
-    public string BlockId { get; set; }
+    public required string BlockId { get; set; }
 }

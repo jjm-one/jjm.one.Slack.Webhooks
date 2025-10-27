@@ -29,5 +29,5 @@ public class Actions : Block
     /// <seealso cref="Elements.SelectExternal" />
     /// <seealso cref="Elements.Overflow" />
     /// <seealso cref="Elements.DatePicker" />
-    public IList<IActionElement> Elements { get; set; }
+    public required IList<IActionElement> Elements { get; set; }
 }

@@ -36,7 +36,7 @@ public class TextObject : IContextElement
     ///     The formatting to use for this text object. Can be one of <see cref="TextType.PlainText" /> or
     ///     <see cref="TextType.Markdown" />.
     /// </summary>
-    public TextType Type { get; set; }
+    public required TextType Type { get; set; }
 
     /// <summary>
     ///     The text for the block. This field accepts any of the standard text formatting markup when type
@@ -44,7 +44,7 @@ public class TextObject : IContextElement
     ///     <see cref="TextType.Markdown" />.
     ///     https://api.slack.com/messaging/composing/formatting
     /// </summary>
-    public string Text { get; set; }
+    public required string Text { get; set; }
 
     /// <summary>
     ///     Indicates whether emojis in a text field should be escaped into the colon emoji format. This

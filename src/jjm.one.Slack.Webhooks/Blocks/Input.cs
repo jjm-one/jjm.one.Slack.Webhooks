@@ -7,8 +7,7 @@ namespace jjm.one.Slack.Webhooks.Blocks;
 ///     A block that collects information from users - it can hold a
 ///     <see cref="Elements.PlainTextInput" /> element,
 ///     a <see cref="Elements.Select" /> menu element, a multi-select menu element, or a
-///     <see cref="Elements.DatePicker" />
-///     .
+///     <see cref="Elements.DatePicker" />.
 ///     Read our guide to using modals to learn how input blocks pass information to your app.
 ///     https://api.slack.com/surfaces/modals/using#gathering_input
 /// </summary>
@@ -40,7 +39,7 @@ public class Input : Block
     ///     be of <see cref="TextObject.TextType.PlainText" />.
     ///     Maximum length for the text in this field is 2000 characters.
     /// </summary>
-    public TextObject Label { get; set; }
+    public required TextObject Label { get; set; }
 
     /// <summary>
     ///     An optional hint that appears below an input element in a lighter grey. It must be a
@@ -48,7 +47,7 @@ public class Input : Block
     ///     can only be of <see cref="TextObject.TextType.PlainText" />.
     ///     Maximum length for the text in this field is 2000 characters.
     /// </summary>
-    public TextObject Hint { get; set; }
+    public TextObject? Hint { get; set; }
 
     /// <summary>
     ///     A boolean that indicates whether the input element may be empty when a user submits the modal.
@@ -61,5 +60,5 @@ public class Input : Block
     ///     element, a multi-select
     ///     menu element, or a <see cref="Elements.DatePicker" />.
     /// </summary>
-    public IInputElement Element { get; set; }
+    public required IInputElement Element { get; set; }
 }

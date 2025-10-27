@@ -24,14 +24,14 @@ public class Option
     ///     text shown in the
     ///     option on the menu. Maximum length for the text in this field is 75 characters.
     /// </summary>
-    public TextObject Text { get; set; }
+    public required string Text { get; set; }
 
     /// <summary>
     ///     The string value that will be passed to your app when this option is chosen. Maximum length for
     ///     this field is 75
     ///     characters.
     /// </summary>
-    public string Value { get; set; }
+    public required string Value { get; set; }
 
     /// <summary>
     ///     A URL to load in the user's browser when the option is clicked. The url attribute is only
@@ -43,5 +43,5 @@ public class Option
     ///     https://api.slack.com/interactivity/handling#payloads
     ///     https://api.slack.com/interactivity/handling#acknowledgment_response
     /// </summary>
-    public string Url { get; set; }
+    public string? Url { get; set; }
 }

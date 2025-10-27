@@ -12,14 +12,14 @@ public class Confirmation
     ///     dialog's title.
     ///     Maximum length for this field is 100 characters.
     /// </summary>
-    public TextObject Title { get; set; }
+    public required TextObject Title { get; set; }
 
     /// <summary>
     ///     A <see cref="TextObject" /> that defines the explanatory text that appears in the confirm
     ///     dialog. Maximum length
     ///     for the <see cref="TextObject.Text" /> in this field is 300 characters.
     /// </summary>
-    public TextObject Text { get; set; }
+    public required TextObject Text { get; set; }
 
     /// <summary>
     ///     A <see cref="TextObject.TextType.PlainText" />-only <see cref="TextObject" /> to define the
@@ -27,7 +27,7 @@ public class Confirmation
     ///     confirms the action. Maximum length for the <see cref="TextObject.Text" /> in this field is 30
     ///     characters.
     /// </summary>
-    public TextObject Confirm { get; set; }
+    public required TextObject Confirm { get; set; }
 
     /// <summary>
     ///     A <see cref="TextObject.TextType.PlainText" />-only <see cref="TextObject" /> to define the
@@ -35,5 +35,5 @@ public class Confirmation
     ///     cancels the action. Maximum length for the <see cref="TextObject.Text" /> in this field is 30
     ///     characters.
     /// </summary>
-    public TextObject Deny { get; set; }
+    public required TextObject Deny { get; set; }
 }

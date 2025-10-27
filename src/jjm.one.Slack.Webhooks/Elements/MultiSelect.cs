@@ -18,30 +18,30 @@ public class MultiSelectStatic : Select, IInputElement
     ///     Maximum number of options is 100.
     ///     If <see cref="OptionGroups" /> is specified, this field should not be.
     /// </summary>
-    public List<Option> Options { get; set; }
+    public required List<Option> Options { get; set; }
 
     /// <summary>
     ///     An array of <see cref="OptionGroups" /> objects.
     ///     Maximum number of options is 100.
-    ///     If <see cref="Option" /> is specified, this field should not be.
+    ///     If <see cref="Options" /> is specified, this field should not be.
     /// </summary>
-    public List<OptionGroup> OptionGroups { get; set; }
+    public List<OptionGroup>? OptionGroups { get; set; }
 
     /// <summary>
     ///     An array of <see cref="Option" /> objects that exactly match one or
     ///     more of the options within <see cref="Options" /> or <see cref="OptionGroups" />.
     ///     These options will be selected when the menu initially loads.
     /// </summary>
-    public List<Option> InitialOptions { get; set; }
+    public List<Option>? InitialOptions { get; set; }
 }
 
 /// <summary>
 ///     Works with <see cref="Blocks.Section" /> and <see cref="Blocks.Input" /> blocks.
 ///     This menu will load its options from an external data source, allowing for a dynamic list of
 ///     options.
-///     Setup
+///     Setup:
 ///     To use this menu type, you'll need to configure your app first:
-///     Goto your app's settings page and choose the Interactive Components feature menu.
+///     Go to your app's settings page and choose the Interactive Components feature menu.
 ///     Add a URL to the Options Load URL under Select Menus.
 ///     Save changes.
 ///     Each time a menu of this type is opened or the user starts typing in the typeahead field, we'll
@@ -62,14 +62,14 @@ public class MultiSelectExternal : Select, IInputElement
     ///     use the <see cref="MinQueryLength" /> attribute to tell Slack the fewest
     ///     number of typed characters required before dispatch.
     /// </summary>
-    public int MinQueryLength { get; set; }
+    public int? MinQueryLength { get; set; }
 
     /// <summary>
     ///     An array of <see cref="Option" /> objects that exactly match one or
     ///     more of the options within <see cref="Options" /> or <see cref="OptionGroups" />.
     ///     These options will be selected when the menu initially loads.
     /// </summary>
-    public IList<Option> InitialOptions { get; set; }
+    public IList<Option>? InitialOptions { get; set; }
 }
 
 /// <summary>
@@ -87,7 +87,7 @@ public class MultiSelectUsers : Select, IInputElement
     /// <summary>
     ///     An array of user IDs of any valid users to be pre-selected when the menu loads.
     /// </summary>
-    public IList<string> InitialUsers { get; set; }
+    public IList<string>? InitialUsers { get; set; }
 }
 
 /// <summary>
@@ -105,7 +105,7 @@ public class MultiSelectConversations : Select, IInputElement
     /// <summary>
     ///     An array of one or more IDs of any valid conversations to be pre-selected when the menu loads.
     /// </summary>
-    public IList<string> InitialConversations { get; set; }
+    public IList<string>? InitialConversations { get; set; }
 }
 
 /// <summary>
@@ -123,5 +123,5 @@ public class MultiSelectChannels : Select, IInputElement
     /// <summary>
     ///     An array of one or more IDs of any valid public channel to be pre-selected when the menu loads.
     /// </summary>
-    public IList<string> InitialChannels { get; set; }
+    public IList<string>? InitialChannels { get; set; }
 }

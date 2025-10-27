@@ -26,7 +26,7 @@ public class DatePicker : Element, IActionElement, IInputElement
     ///     Should be unique among all other <see cref="ActionId" />s used elsewhere by your app.
     ///     Maximum length for this field is 255 characters.
     /// </summary>
-    public string ActionId { get; set; }
+    public required string ActionId { get; set; }
 
     /// <summary>
     ///     A <see cref="TextObject.TextType.PlainText" /> only <see cref="TextObject" /> that defines the
@@ -34,18 +34,18 @@ public class DatePicker : Element, IActionElement, IInputElement
     ///     shown on the datepicker.
     ///     Maximum length for the text in this field is 150 characters.
     /// </summary>
-    public TextObject Placeholder { get; set; }
+    public TextObject? Placeholder { get; set; }
 
     /// <summary>
     ///     The initial date that is selected when the element is loaded. This should be in the format
     ///     YYYY-MM-DD.
     /// </summary>
-    public string InitialDate { get; set; }
+    public string? InitialDate { get; set; }
 
     /// <summary>
     ///     A <see cref="Confirmation" /> object that defines an optional confirmation dialog that appears
     ///     after a date is
     ///     selected.
     /// </summary>
-    public Confirmation Confirm { get; set; }
+    public Confirmation? Confirm { get; set; }
 }
