@@ -8,7 +8,23 @@ public class RadioButtonElementFixtures
     public void ShouldSerializeType()
     {
         // arrange
-        var radio = new RadioButtons();
+        var radio = new RadioButtons
+        {
+            ActionId = "action_1",
+            Options = new List<Option>
+            {
+                new()
+                {
+                    Text = new TextObject
+                    {
+                        Text = "Option 1",
+                        Type = TextObject.TextType.PlainText
+                    },
+                    Value = "value_1"
+                }
+            },
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(radio);
@@ -17,12 +33,27 @@ public class RadioButtonElementFixtures
         payload.Should().Contain("\"type\":\"radio_buttons\"");
     }
 
-
     [Fact]
     public void ShouldSerializeActionId()
     {
         // arrange
-        var radio = new RadioButtons { ActionId = "Action123" };
+        var radio = new RadioButtons
+        {
+            ActionId = "Action123",
+            Options = new List<Option>
+            {
+                new()
+                {
+                    Text = new TextObject
+                    {
+                        Text = "Option 1",
+                        Type = TextObject.TextType.PlainText
+                    },
+                    Value = "value_1"
+                }
+            },
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(radio);
@@ -31,13 +62,37 @@ public class RadioButtonElementFixtures
         payload.Should().Contain("\"action_id\":\"Action123\"");
     }
 
-
     [Fact]
     public void ShouldSerializeConfirm()
     {
         // arrange
-        var confirm = new Confirmation();
-        var radio = new RadioButtons { Confirm = confirm };
+        var confirm = new Confirmation
+        {
+            Title = "Confirm Title",
+            Text = "Are you sure?",
+            OkText = "Yes",
+            DismissText = "No",
+            Confirm = null,
+            Deny = null
+        };
+        var radio = new RadioButtons
+        {
+            ActionId = "action_2",
+            Confirm = confirm,
+            Options = new List<Option>
+            {
+                new()
+                {
+                    Text = new TextObject
+                    {
+                        Text = "Option 1",
+                        Type = TextObject.TextType.PlainText
+                    },
+                    Value = "value_1"
+                }
+            },
+            Type = ElementType.Unknown
+        };
 
         // act
         var confirmPayload = SlackClient.SerializeObject(confirm);
@@ -51,8 +106,17 @@ public class RadioButtonElementFixtures
     public void ShouldSerializeOptions()
     {
         // arrange
-        var options = new List<Option> { new() { Value = "Value123" } };
-        var radio = new RadioButtons { Options = options };
+        var options = new List<Option>
+        {
+            new() { Text = new TextObject { Text = "Option 1", Type = TextObject.TextType.PlainText }, Value = "value_1" },
+            new() { Text = new TextObject { Text = "Option 2", Type = TextObject.TextType.PlainText }, Value = "value_2" }
+        };
+        var radio = new RadioButtons
+        {
+            ActionId = "action_3",
+            Options = options,
+            Type = ElementType.Unknown
+        };
 
         // act
         var optionsPayload = SlackClient.SerializeObject(options);
@@ -66,14 +130,35 @@ public class RadioButtonElementFixtures
     public void ShouldSerializeInitialOption()
     {
         // arrange
-        var option = new Option { Value = "Value123" };
-        var radio = new RadioButtons { InitialOption = option };
+        var option = new Option
+        {
+            Text = new TextObject { Text = "Option 1", Type = TextObject.TextType.PlainText },
+            Value = "value_1"
+        };
+        var radio = new RadioButtons
+        {
+            ActionId = "action_4",
+            Options = new List<Option>
+            {
+                new()
+                {
+                    Text = new TextObject
+                    {
+                        Text = "Option 1",
+                        Type = TextObject.TextType.PlainText
+                    },
+                    Value = "value_1"
+                }
+            },
+            InitialOption = option,
+            Type = ElementType.Unknown
+        };
 
         // act
-        var optionsPayload = SlackClient.SerializeObject(option);
+        var optionPayload = SlackClient.SerializeObject(option);
         var payload = SlackClient.SerializeObject(radio);
 
         // assert
-        payload.Should().Contain($"\"initial_option\":{optionsPayload}");
+        payload.Should().Contain($"\"initial_option\":{optionPayload}");
     }
 }

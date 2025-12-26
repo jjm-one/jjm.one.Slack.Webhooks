@@ -18,7 +18,11 @@ public class SelectElementFixtures
     public void ShouldSerializeType(ElementType elementType, string expected)
     {
         // arrange
-        var select = new Select(elementType);
+        var select = new Select(elementType)
+        {
+            ActionId = "action_1",
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(select);
@@ -31,10 +35,14 @@ public class SelectElementFixtures
     public void ShouldSerializeActionId()
     {
         // arrange
-        var button = new Select(ElementType.MultiSelectStatic) { ActionId = "Action123" };
+        var select = new Select(ElementType.MultiSelectStatic)
+        {
+            ActionId = "Action123",
+            Type = ElementType.Unknown
+        };
 
         // act
-        var payload = SlackClient.SerializeObject(button);
+        var payload = SlackClient.SerializeObject(select);
 
         // assert
         payload.Should().Contain("\"action_id\":\"Action123\"");
@@ -44,12 +52,21 @@ public class SelectElementFixtures
     public void ShouldSerializePlaceholder()
     {
         // arrange
-        var text = new TextObject();
-        var button = new Select(ElementType.MultiSelectStatic) { Placeholder = text };
+        var text = new TextObject
+        {
+            Text = "Select an option",
+            Type = TextObject.TextType.PlainText
+        };
+        var select = new Select(ElementType.MultiSelectStatic)
+        {
+            ActionId = "action_2",
+            Placeholder = text,
+            Type = ElementType.Unknown
+        };
 
         // act
         var textPayload = SlackClient.SerializeObject(text);
-        var payload = SlackClient.SerializeObject(button);
+        var payload = SlackClient.SerializeObject(select);
 
         // assert
         payload.Should().Contain($"\"placeholder\":{textPayload}");
@@ -59,12 +76,25 @@ public class SelectElementFixtures
     public void ShouldSerializeConfirm()
     {
         // arrange
-        var confirm = new Confirmation();
-        var button = new Select(ElementType.MultiSelectStatic) { Confirm = confirm };
+        var confirm = new Confirmation
+        {
+            Title = "Confirm Title",
+            Text = "Are you sure?",
+            OkText = "Yes",
+            DismissText = "No",
+            Confirm = null,
+            Deny = null
+        };
+        var select = new Select(ElementType.MultiSelectStatic)
+        {
+            ActionId = "action_3",
+            Confirm = confirm,
+            Type = ElementType.Unknown
+        };
 
         // act
         var confirmPayload = SlackClient.SerializeObject(confirm);
-        var payload = SlackClient.SerializeObject(button);
+        var payload = SlackClient.SerializeObject(select);
 
         // assert
         payload.Should().Contain($"\"confirm\":{confirmPayload}");

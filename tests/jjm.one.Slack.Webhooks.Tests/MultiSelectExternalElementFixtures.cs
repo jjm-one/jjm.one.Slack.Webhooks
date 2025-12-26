@@ -8,7 +8,12 @@ public class MultiSelectExternalElementFixtures
     public void ShouldSerializeMinQueryLength()
     {
         // arrange
-        var select = new MultiSelectExternal { MinQueryLength = 5 };
+        var select = new MultiSelectExternal
+        {
+            ActionId = "action_1",
+            MinQueryLength = 5,
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(select);
@@ -21,8 +26,16 @@ public class MultiSelectExternalElementFixtures
     public void ShouldSerializeInitialOptions()
     {
         // arrange
-        var options = new List<Option> { new() { Value = "Value123" } };
-        var select = new MultiSelectExternal { InitialOptions = options };
+        var options = new List<Option>
+        {
+            new() { Text = "Option 1", Value = "Value123" }
+        };
+        var select = new MultiSelectExternal
+        {
+            ActionId = "action_2",
+            InitialOptions = options,
+            Type = ElementType.Unknown
+        };
 
         // act
         var optionsPayload = SlackClient.SerializeObject(options);
@@ -30,5 +43,22 @@ public class MultiSelectExternalElementFixtures
 
         // assert
         payload.Should().Contain($"\"initial_options\":{optionsPayload}");
+    }
+
+    [Fact]
+    public void ShouldSerializeActionId()
+    {
+        // arrange
+        var select = new MultiSelectExternal
+        {
+            ActionId = "action_3",
+            Type = ElementType.Unknown
+        };
+
+        // act
+        var payload = SlackClient.SerializeObject(select);
+
+        // assert
+        payload.Should().Contain("\"action_id\":\"action_3\"");
     }
 }

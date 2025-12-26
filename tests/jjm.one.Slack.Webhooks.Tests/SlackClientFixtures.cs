@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 using Moq;
 using Moq.Protected;
 
@@ -17,95 +17,91 @@ public class SlackClientFixtures
     [Fact]
     public void ShouldReturnTrueIfPostSucceeds()
     {
-        //arrange
+        // arrange
         const string hookUrl = "https://hooks.slack.com/mygreathook";
-        Mock<HttpMessageHandler> httpMessageHandler = GetMockHttpMessageHandler();
-        var client = new SlackClient(hookUrl,
-            httpClient: new HttpClient(httpMessageHandler.Object, false));
-        SlackMessage slackMessage = GetSlackMessage();
+        var httpMessageHandler = GetMockHttpMessageHandler();
+        var client = new SlackClient(hookUrl, new HttpClient(httpMessageHandler.Object, false));
+        var slackMessage = GetSlackMessage();
 
-        //act
+        // act
         var result = client.Post(slackMessage);
 
-        //assert
+        // assert
         Assert.True(result);
     }
 
     [Fact]
     public void ShouldReturnFalseIfPostFails()
     {
-        //arrange
+        // arrange
         const string hookUrl = "https://hooks.slack.com/invalidhook";
-        Mock<HttpMessageHandler> httpMessageHandler = GetMockHttpMessageHandler("NOK");
-        var client = new SlackClient(hookUrl,
-            httpClient: new HttpClient(httpMessageHandler.Object, false));
-        SlackMessage slackMessage = GetSlackMessage();
+        var httpMessageHandler = GetMockHttpMessageHandler("NOK");
+        var client = new SlackClient(hookUrl, new HttpClient(httpMessageHandler.Object, false));
+        var slackMessage = GetSlackMessage();
 
-        //act
+        // act
         var result = client.Post(slackMessage);
 
-        //assert
+        // assert
         Assert.False(result);
     }
 
     [Fact]
     public void ShouldRememberTimeout()
     {
+        // arrange
         const string hookUrl = "https://hooks.slack.com/invalid";
-        var timeoutSeconds = 2;
+        const int timeoutSeconds = 2;
         var client = new SlackClient(hookUrl, timeoutSeconds);
 
+        // assert
         Assert.Equal(timeoutSeconds * 1000, client.TimeoutMs);
     }
 
     [Fact]
     public void ShouldReuseHttpClient()
     {
-        //arrange
+        // arrange
         const string hookUrl = "https://hooks.slack.com/invalid";
-        Mock<HttpMessageHandler> httpMessageHandler = GetMockHttpMessageHandler();
+        var httpMessageHandler = GetMockHttpMessageHandler();
         var httpClient = new HttpClient(httpMessageHandler.Object, false);
-        var client = new SlackClient(hookUrl, httpClient: httpClient);
-        SlackMessage slackMessage = GetSlackMessage();
+        var client = new SlackClient(hookUrl, httpClient);
+        var slackMessage = GetSlackMessage();
 
-        //act
+        // act
         client.Post(slackMessage);
         client.Post(slackMessage);
 
-        //assert
+        // assert
         httpMessageHandler.Protected().Verify(
             "SendAsync",
             Times.Exactly(2),
             ItExpr.Is<HttpRequestMessage>(req =>
-                req.Method == HttpMethod.Post
-                && req.RequestUri == new Uri(hookUrl)
-            ),
+                req.Method == HttpMethod.Post &&
+                req.RequestUri == new Uri(hookUrl)),
             ItExpr.IsAny<CancellationToken>()
         );
     }
 
-
     [Fact]
     public void ShouldContainSerializedMessage()
     {
-        //arrange
+        // arrange
         const string hookUrl = "https://hooks.slack.com/invalid";
         SlackMessage? postedMessage = null;
-        Mock<HttpMessageHandler> httpMessageHandler = GetMockHttpMessageHandler(
-            callback: (req, token) =>
-            {
-                var json = req.Content.ReadAsStringAsync().GetAwaiter().GetResult();
-                postedMessage = SlackClient.DeserializeObject(json);
-            });
+        var httpMessageHandler = GetMockHttpMessageHandler(callback: (req, _) =>
+        {
+            var json = req.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            postedMessage = SlackClient.DeserializeObject(json);
+        });
 
-        var httpClient = new HttpClient(httpMessageHandler.Object, false);
-        var client = new SlackClient(hookUrl, httpClient: httpClient);
-        SlackMessage slackMessage = GetSlackMessage();
+        var client = new SlackClient(hookUrl, new HttpClient(httpMessageHandler.Object, false));
+        var slackMessage = GetSlackMessage();
 
-        //act
+        // act
         client.Post(slackMessage);
 
-        //assert
+        // assert
         Assert.NotNull(postedMessage);
         Assert.Equal(slackMessage.Text, postedMessage.Text);
         Assert.Equal(slackMessage.Channel, postedMessage.Channel);
@@ -116,43 +112,41 @@ public class SlackClientFixtures
     [Fact]
     public void ShouldPostToMultipleChannels()
     {
-        //arrange
+        // arrange
         const string hookUrl = "https://hooks.slack.com/invalid";
         var channelsPostedTo = new List<string>();
-        Mock<HttpMessageHandler> httpMessageHandler = GetMockHttpMessageHandler(
-            callback: (req, token) =>
-            {
-                var json = req.Content.ReadAsStringAsync().GetAwaiter().GetResult();
-                SlackMessage? postedMessage = SlackClient.DeserializeObject(json);
-                channelsPostedTo.Add(postedMessage.Channel);
-            });
+        var httpMessageHandler = GetMockHttpMessageHandler(callback: (req, _) =>
+        {
+            var json = req.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            var postedMessage = SlackClient.DeserializeObject(json);
+            channelsPostedTo.Add(postedMessage.Channel);
+        });
 
-        var httpClient = new HttpClient(httpMessageHandler.Object, false);
-        var client = new SlackClient(hookUrl, httpClient: httpClient);
-        SlackMessage slackMessage = GetSlackMessage();
+        var client = new SlackClient(hookUrl, new HttpClient(httpMessageHandler.Object, false));
+        var slackMessage = GetSlackMessage();
         var channelsToPostTo = new List<string> { "#test1", "#test2", "test3" };
 
-        //act
+        // act
         client.PostToChannels(slackMessage, channelsToPostTo);
 
-        //assert
+        // assert
         Assert.Equal(channelsToPostTo.Count, channelsPostedTo.Count);
-        foreach (var c in channelsToPostTo)
+        foreach (var channel in channelsToPostTo)
         {
-            Assert.Contains(c, channelsPostedTo);
+            Assert.Contains(channel, channelsPostedTo);
         }
     }
 
-    private static Mock<HttpMessageHandler> GetMockHttpMessageHandler(string response = "OK",
+    private static Mock<HttpMessageHandler> GetMockHttpMessageHandler(
+        string response = "OK",
         Action<HttpRequestMessage, CancellationToken> callback = null)
     {
-        callback = callback ?? delegate { };
+        callback ??= delegate { };
 
         var httpMessageHandler = new Mock<HttpMessageHandler>(MockBehavior.Strict);
         httpMessageHandler
             .Protected()
-            .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.IsAny<HttpRequestMessage>(),
-                ItExpr.IsAny<CancellationToken>())
+            .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>())
             .ReturnsAsync(new HttpResponseMessage
             {
                 StatusCode = HttpStatusCode.OK,
@@ -160,6 +154,7 @@ public class SlackClientFixtures
             })
             .Callback(callback)
             .Verifiable();
+
         return httpMessageHandler;
     }
 

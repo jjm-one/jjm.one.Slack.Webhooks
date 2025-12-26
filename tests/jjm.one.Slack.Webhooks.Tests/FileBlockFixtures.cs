@@ -2,15 +2,17 @@ using File = jjm.one.Slack.Webhooks.Blocks.File;
 
 namespace jjm.one.Slack.Webhooks.Tests;
 
-using File = File;
-
 public class FileBlockFixtures
 {
     [Fact]
     public void ShouldHaveExternalId()
     {
         // arrange
-        var file = new File { ExternalId = "AB_1234" };
+        var file = new File
+        {
+            BlockId = "file_block_1",
+            ExternalId = "AB_1234"
+        };
 
         // act
         var payload = SlackClient.SerializeObject(file);
@@ -23,7 +25,11 @@ public class FileBlockFixtures
     public void ShouldHaveRemoteSourceByDefault()
     {
         // arrange
-        var file = new File();
+        var file = new File
+        {
+            BlockId = "file_block_2",
+            ExternalId = "CD_5678"
+        };
 
         // act
         var payload = SlackClient.SerializeObject(file);
@@ -31,5 +37,22 @@ public class FileBlockFixtures
         // assert
         file.Source.Should().Be("remote");
         payload.Should().Contain("\"source\":\"remote\"");
+    }
+
+    [Fact]
+    public void ShouldSerializeBlockId()
+    {
+        // arrange
+        var file = new File
+        {
+            BlockId = "file_block_3",
+            ExternalId = "EF_91011"
+        };
+
+        // act
+        var payload = SlackClient.SerializeObject(file);
+
+        // assert
+        payload.Should().Contain("\"block_id\":\"file_block_3\"");
     }
 }

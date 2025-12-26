@@ -1,4 +1,4 @@
-﻿namespace jjm.one.Slack.Webhooks;
+namespace jjm.one.Slack.Webhooks;
 
 /// <summary>
 ///     Blocks are a series of components that can be combined to create visually rich and compellingly

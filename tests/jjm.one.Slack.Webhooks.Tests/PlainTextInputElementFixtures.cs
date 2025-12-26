@@ -8,7 +8,11 @@ public class PlainTextInputElementFixtures
     public void ShouldSerializeType()
     {
         // arrange
-        var input = new PlainTextInput();
+        var input = new PlainTextInput
+        {
+            ActionId = "action_1",
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(input);
@@ -21,7 +25,11 @@ public class PlainTextInputElementFixtures
     public void ShouldSerializeActionId()
     {
         // arrange
-        var input = new PlainTextInput { ActionId = "Action123" };
+        var input = new PlainTextInput
+        {
+            ActionId = "Action123",
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(input);
@@ -34,8 +42,17 @@ public class PlainTextInputElementFixtures
     public void ShouldSerializePlaceholder()
     {
         // arrange
-        var text = new TextObject();
-        var input = new PlainTextInput { Placeholder = text };
+        var text = new TextObject
+        {
+            Text = "Enter text",
+            Type = TextObject.TextType.PlainText
+        };
+        var input = new PlainTextInput
+        {
+            ActionId = "action_2",
+            Placeholder = text,
+            Type = ElementType.Unknown
+        };
 
         // act
         var textPayload = SlackClient.SerializeObject(text);
@@ -49,7 +66,12 @@ public class PlainTextInputElementFixtures
     public void ShouldSerializeInitialValue()
     {
         // arrange
-        var input = new PlainTextInput { InitialValue = "Value123" };
+        var input = new PlainTextInput
+        {
+            ActionId = "action_3",
+            InitialValue = "Value123",
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(input);
@@ -62,7 +84,12 @@ public class PlainTextInputElementFixtures
     public void ShouldSerializeMultiLine()
     {
         // arrange
-        var input = new PlainTextInput { MultiLine = true };
+        var input = new PlainTextInput
+        {
+            ActionId = "action_4",
+            MultiLine = true,
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(input);
@@ -75,7 +102,12 @@ public class PlainTextInputElementFixtures
     public void ShouldSerializeMinLength()
     {
         // arrange
-        var input = new PlainTextInput { MinLength = 10 };
+        var input = new PlainTextInput
+        {
+            ActionId = "action_5",
+            MinLength = 10,
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(input);
@@ -88,12 +120,17 @@ public class PlainTextInputElementFixtures
     public void ShouldSerializeMaxLength()
     {
         // arrange
-        var input = new PlainTextInput { MaxLength = 10 };
+        var input = new PlainTextInput
+        {
+            ActionId = "action_6",
+            MaxLength = 20,
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(input);
 
         // assert
-        payload.Should().Contain("\"max_length\":10");
+        payload.Should().Contain("\"max_length\":20");
     }
 }

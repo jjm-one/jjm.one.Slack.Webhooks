@@ -10,8 +10,21 @@ public class InputBlockFixtures
     public void ShouldSerializeLabel()
     {
         // arrange
-        var textObject = new TextObject { Text = "Test label" };
-        var input = new Input { Label = textObject };
+        var textObject = new TextObject
+        {
+            Text = "Test label",
+            Type = TextObject.TextType.PlainText
+        };
+        var input = new Input
+        {
+            BlockId = "input_block_1",
+            Label = textObject,
+            Element = new PlainTextInput
+            {
+                ActionId = "action_1",
+                Type = ElementType.Unknown
+            }
+        };
 
         // act
         var textPayload = SlackClient.SerializeObject(textObject);
@@ -25,8 +38,26 @@ public class InputBlockFixtures
     public void ShouldSerializeHint()
     {
         // arrange
-        var textObject = new TextObject { Text = "Test hint" };
-        var input = new Input { Hint = textObject };
+        var textObject = new TextObject
+        {
+            Text = "Test hint",
+            Type = TextObject.TextType.PlainText
+        };
+        var input = new Input
+        {
+            BlockId = "input_block_2",
+            Label = new TextObject
+            {
+                Text = "Label",
+                Type = TextObject.TextType.PlainText
+            },
+            Hint = textObject,
+            Element = new PlainTextInput
+            {
+                ActionId = "action_2",
+                Type = ElementType.Unknown
+            }
+        };
 
         // act
         var textPayload = SlackClient.SerializeObject(textObject);
@@ -40,7 +71,21 @@ public class InputBlockFixtures
     public void ShouldSerializeOptional()
     {
         // arrange
-        var input = new Input { Optional = true };
+        var input = new Input
+        {
+            BlockId = "input_block_3",
+            Label = new TextObject
+            {
+                Text = "Label",
+                Type = TextObject.TextType.PlainText
+            },
+            Optional = true,
+            Element = new PlainTextInput
+            {
+                ActionId = "action_3",
+                Type = ElementType.Unknown
+            }
+        };
 
         // act
         var payload = SlackClient.SerializeObject(input);
@@ -51,16 +96,25 @@ public class InputBlockFixtures
 
     [Theory]
     [MemberData(nameof(GetInputElementData))]
-    public void ShouldSerializeInputElementTypes(object element)
+    public void ShouldSerializeInputElementTypes(IInputElement element)
     {
         // arrange
-        var input = new Input { Element = (IInputElement)element };
+        var input = new Input
+        {
+            BlockId = "input_block_4",
+            Label = new TextObject
+            {
+                Text = "Label",
+                Type = TextObject.TextType.PlainText
+            },
+            Element = element
+        };
 
         // act
         var elementPayload = SlackClient.SerializeObject(element);
         var payload = SlackClient.SerializeObject(input);
 
-        // arrange
+        // assert
         payload.Should().Contain($"\"element\":{elementPayload}");
     }
 
@@ -68,18 +122,94 @@ public class InputBlockFixtures
     {
         return new List<object[]>
         {
-            new object[] { new PlainTextInput() },
-            new object[] { new SelectChannels() },
-            new object[] { new SelectUsers() },
-            new object[] { new SelectConversations() },
-            new object[] { new SelectStatic() },
-            new object[] { new SelectExternal() },
-            new object[] { new MultiSelectChannels() },
-            new object[] { new MultiSelectUsers() },
-            new object[] { new MultiSelectConversations() },
-            new object[] { new MultiSelectStatic() },
-            new object[] { new MultiSelectExternal() },
-            new object[] { new DatePicker() }
+            new object[] { new PlainTextInput
+                {
+                    ActionId = "action_plain_text",
+                    Type = ElementType.Unknown
+                }
+            },
+            new object[] { new SelectChannels
+                {
+                    ActionId = "action_channels",
+                    Type = ElementType.Unknown
+                }
+            },
+            new object[] { new SelectUsers
+                {
+                    ActionId = "action_users",
+                    Type = ElementType.Unknown
+                }
+            },
+            new object[] { new SelectConversations
+                {
+                    ActionId = "action_conversations",
+                    Type = ElementType.Unknown
+                }
+            },
+            new object[] { new SelectStatic
+                {
+                    ActionId = "action_static",
+                    Options = new List<Option>
+                    {
+                        new Option
+                        {
+                            Text = "Option 1",
+                            Value = "value_1"
+                        }
+                    },
+                    Type = ElementType.Unknown
+                }
+            },
+            new object[] { new SelectExternal
+                {
+                    ActionId = "action_external",
+                    Type = ElementType.Unknown
+                }
+            },
+            new object[] { new MultiSelectChannels
+                {
+                    ActionId = "action_multi_channels",
+                    Type = ElementType.Unknown
+                }
+            },
+            new object[] { new MultiSelectUsers
+                {
+                    ActionId = "action_multi_users",
+                    Type = ElementType.Unknown
+                }
+            },
+            new object[] { new MultiSelectConversations
+                {
+                    ActionId = "action_multi_conversations",
+                    Type = ElementType.Unknown
+                }
+            },
+            new object[] { new MultiSelectStatic
+                {
+                    ActionId = "action_multi_static",
+                    Options = new List<Option>
+                    {
+                        new Option
+                        {
+                            Text = "Option 1",
+                            Value = "value_1"
+                        }
+                    },
+                    Type = ElementType.Unknown
+                }
+            },
+            new object[] { new MultiSelectExternal
+                {
+                    ActionId = "action_multi_external",
+                    Type = ElementType.Unknown
+                }
+            },
+            new object[] { new DatePicker
+                {
+                    ActionId = "action_datepicker",
+                    Type = ElementType.Unknown
+                }
+            }
         };
     }
 }

@@ -8,8 +8,16 @@ public class MultiSelectStaticElementFixtures
     public void ShouldSerializeOptions()
     {
         // arrange
-        var options = new List<Option> { new() { Value = "Value123" } };
-        var select = new MultiSelectStatic { Options = options };
+        var options = new List<Option>
+        {
+            new() { Text = "Option 1", Value = "Value123" }
+        };
+        var select = new MultiSelectStatic
+        {
+            ActionId = "action_1",
+            Options = options,
+            Type = ElementType.Unknown
+        };
 
         // act
         var optionsPayload = SlackClient.SerializeObject(options);
@@ -23,8 +31,17 @@ public class MultiSelectStaticElementFixtures
     public void ShouldSerializeInitialOptions()
     {
         // arrange
-        var options = new List<Option> { new() { Value = "Value123" } };
-        var select = new MultiSelectStatic { InitialOptions = options };
+        var options = new List<Option>
+        {
+            new() { Text = "Option 1", Value = "Value123" }
+        };
+        var select = new MultiSelectStatic
+        {
+            ActionId = "action_2",
+            InitialOptions = options,
+            Options = null,
+            Type = ElementType.Unknown
+        };
 
         // act
         var optionsPayload = SlackClient.SerializeObject(options);
@@ -35,12 +52,29 @@ public class MultiSelectStaticElementFixtures
     }
 
     [Fact]
-    public void ShouldSerializeInitialOptionGroup()
+    public void ShouldSerializeOptionGroups()
     {
         // arrange
-        var options = new List<Option> { new() { Value = "Value123" } };
-        var groups = new List<OptionGroup> { new() { Options = options } };
-        var select = new MultiSelectStatic { OptionGroups = groups };
+        var options = new List<Option>
+        {
+            new() { Text = "Option 1", Value = "Value123" }
+        };
+        var groups = new List<OptionGroup>
+        {
+            new()
+            {
+                Text = "Group 1",
+                Options = options,
+                Label = null
+            }
+        };
+        var select = new MultiSelectStatic
+        {
+            ActionId = "action_3",
+            OptionGroups = groups,
+            Options = null,
+            Type = ElementType.Unknown
+        };
 
         // act
         var groupsPayload = SlackClient.SerializeObject(groups);
@@ -48,5 +82,30 @@ public class MultiSelectStaticElementFixtures
 
         // assert
         payload.Should().Contain($"\"option_groups\":{groupsPayload}");
+    }
+
+    [Fact]
+    public void ShouldSerializeActionId()
+    {
+        // arrange
+        var select = new MultiSelectStatic
+        {
+            ActionId = "action_4",
+            Options = new List<Option>
+            {
+                new()
+                {
+                    Text = "Option 1",
+                    Value = "Value123"
+                }
+            },
+            Type = ElementType.Unknown
+        };
+
+        // act
+        var payload = SlackClient.SerializeObject(select);
+
+        // assert
+        payload.Should().Contain("\"action_id\":\"action_4\"");
     }
 }

@@ -1,4 +1,4 @@
-﻿using jjm.one.Slack.Webhooks.Elements;
+using jjm.one.Slack.Webhooks.Elements;
 using jjm.one.Slack.Webhooks.Interfaces;
 
 namespace jjm.one.Slack.Webhooks.Blocks;

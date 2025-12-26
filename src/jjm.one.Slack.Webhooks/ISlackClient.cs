@@ -1,4 +1,4 @@
-﻿namespace jjm.one.Slack.Webhooks;
+namespace jjm.one.Slack.Webhooks;
 
 public interface ISlackClient
 {

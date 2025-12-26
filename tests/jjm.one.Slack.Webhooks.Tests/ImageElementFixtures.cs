@@ -8,7 +8,12 @@ public class ImageElementFixtures
     public void ShouldSerializeType()
     {
         // arrange
-        var image = new Image();
+        var image = new Image
+        {
+            ImageUrl = "http://someurl.com",
+            AltText = "Alternate Text",
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(image);
@@ -21,7 +26,12 @@ public class ImageElementFixtures
     public void ShouldSerializeImageUrl()
     {
         // arrange
-        var image = new Image { ImageUrl = "http://someurl.com" };
+        var image = new Image
+        {
+            ImageUrl = "http://someurl.com",
+            AltText = "Alternate Text",
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(image);
@@ -34,12 +44,41 @@ public class ImageElementFixtures
     public void ShouldSerializeAltText()
     {
         // arrange
-        var image = new Image { AltText = "Alternate Text" };
+        var image = new Image
+        {
+            ImageUrl = "http://someurl.com",
+            AltText = "Alternate Text",
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(image);
 
         // assert
         payload.Should().Contain("\"alt_text\":\"Alternate Text\"");
+    }
+
+    [Fact]
+    public void ShouldSerializeTitle()
+    {
+        // arrange
+        var image = new Image
+        {
+            ImageUrl = "http://someurl.com",
+            AltText = "Alternate Text",
+            Title = new TextObject
+            {
+                Text = "Image Title",
+                Type = TextObject.TextType.PlainText
+            },
+            Type = ElementType.Unknown
+        };
+
+        // act
+        var titlePayload = SlackClient.SerializeObject(image.Title);
+        var payload = SlackClient.SerializeObject(image);
+
+        // assert
+        payload.Should().Contain($"\"title\":{titlePayload}");
     }
 }

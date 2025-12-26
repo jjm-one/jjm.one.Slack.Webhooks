@@ -5,11 +5,19 @@ namespace jjm.one.Slack.Webhooks.Tests;
 public class OptionElementFixtures
 {
     [Fact]
-    public void ShouldSerializePlaceholder()
+    public void ShouldSerializeText()
     {
         // arrange
-        var text = new TextObject();
-        var option = new Option { Text = text };
+        var text = new TextObject
+        {
+            Text = "Option Text",
+            Type = TextObject.TextType.PlainText
+        };
+        var option = new Option
+        {
+            Text = text,
+            Value = "Value123"
+        };
 
         // act
         var textPayload = SlackClient.SerializeObject(text);
@@ -23,7 +31,15 @@ public class OptionElementFixtures
     public void ShouldSerializeValue()
     {
         // arrange
-        var option = new Option { Value = "Value123" };
+        var option = new Option
+        {
+            Text = new TextObject
+            {
+                Text = "Option Text",
+                Type = TextObject.TextType.PlainText
+            },
+            Value = "Value123"
+        };
 
         // act
         var payload = SlackClient.SerializeObject(option);
@@ -36,7 +52,16 @@ public class OptionElementFixtures
     public void ShouldSerializeUrl()
     {
         // arrange
-        var option = new Option { Url = "http://someurl.com" };
+        var option = new Option
+        {
+            Text = new TextObject
+            {
+                Text = "Option Text",
+                Type = TextObject.TextType.PlainText
+            },
+            Value = "Value123",
+            Url = "http://someurl.com"
+        };
 
         // act
         var payload = SlackClient.SerializeObject(option);

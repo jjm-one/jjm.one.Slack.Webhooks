@@ -8,10 +8,14 @@ public class DatePickerElementFixtures
     public void ShouldSerializeType()
     {
         // arrange
-        var button = new DatePicker();
+        var datePicker = new DatePicker
+        {
+            ActionId = "action_1",
+            Type = ElementType.Unknown
+        };
 
         // act
-        var payload = SlackClient.SerializeObject(button);
+        var payload = SlackClient.SerializeObject(datePicker);
 
         // assert
         payload.Should().Contain("\"type\":\"datepicker\"");
@@ -21,10 +25,14 @@ public class DatePickerElementFixtures
     public void ShouldSerializeActionId()
     {
         // arrange
-        var button = new DatePicker { ActionId = "Action123" };
+        var datePicker = new DatePicker
+        {
+            ActionId = "Action123",
+            Type = ElementType.Unknown
+        };
 
         // act
-        var payload = SlackClient.SerializeObject(button);
+        var payload = SlackClient.SerializeObject(datePicker);
 
         // assert
         payload.Should().Contain("\"action_id\":\"Action123\"");
@@ -34,10 +42,15 @@ public class DatePickerElementFixtures
     public void ShouldSerializeInitialDate()
     {
         // arrange
-        var button = new DatePicker { InitialDate = "2019-11-01" };
+        var datePicker = new DatePicker
+        {
+            ActionId = "action_1",
+            InitialDate = "2019-11-01",
+            Type = ElementType.Unknown
+        };
 
         // act
-        var payload = SlackClient.SerializeObject(button);
+        var payload = SlackClient.SerializeObject(datePicker);
 
         // assert
         payload.Should().Contain("\"initial_date\":\"2019-11-01\"");
@@ -47,27 +60,47 @@ public class DatePickerElementFixtures
     public void ShouldSerializePlaceholder()
     {
         // arrange
-        var text = new TextObject();
-        var button = new DatePicker { Placeholder = text };
+        var placeholder = new TextObject
+        {
+            Type = TextObject.TextType.PlainText,
+            Text = "Select a date"
+        };
+        var datePicker = new DatePicker
+        {
+            ActionId = "action_1",
+            Placeholder = placeholder,
+            Type = ElementType.Unknown
+        };
 
         // act
-        var textPayload = SlackClient.SerializeObject(text);
-        var payload = SlackClient.SerializeObject(button);
+        var placeholderPayload = SlackClient.SerializeObject(placeholder);
+        var payload = SlackClient.SerializeObject(datePicker);
 
         // assert
-        payload.Should().Contain($"\"placeholder\":{textPayload}");
+        payload.Should().Contain($"\"placeholder\":{placeholderPayload}");
     }
 
     [Fact]
     public void ShouldSerializeConfirm()
     {
         // arrange
-        var confirm = new Confirmation();
-        var button = new DatePicker { Confirm = confirm };
+        var confirm = new Confirmation
+        {
+            Title = new TextObject { Text = "Confirm Title", Type = TextObject.TextType.PlainText },
+            Text = new TextObject { Text = "Are you sure?", Type = TextObject.TextType.PlainText },
+            Confirm = new TextObject { Text = "Yes", Type = TextObject.TextType.PlainText },
+            Deny = new TextObject { Text = "No", Type = TextObject.TextType.PlainText }
+        };
+        var datePicker = new DatePicker
+        {
+            ActionId = "action_1",
+            Confirm = confirm,
+            Type = ElementType.Unknown
+        };
 
         // act
         var confirmPayload = SlackClient.SerializeObject(confirm);
-        var payload = SlackClient.SerializeObject(button);
+        var payload = SlackClient.SerializeObject(datePicker);
 
         // assert
         payload.Should().Contain($"\"confirm\":{confirmPayload}");

@@ -8,7 +8,16 @@ public class ButtonElementFixtures
     public void ShouldSerializeType()
     {
         // arrange
-        var button = new Button();
+        var button = new Button
+        {
+            ActionId = "action_1",
+            Text = new TextObject
+            {
+                Type = TextObject.TextType.PlainText,
+                Text = "Click Me"
+            },
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(button);
@@ -21,20 +30,38 @@ public class ButtonElementFixtures
     public void ShouldSerializeText()
     {
         // arrange
-        var button = new Button { Text = new TextObject { Text = "Test Text" } };
+        var button = new Button
+        {
+            ActionId = "action_1",
+            Text = new TextObject
+            {
+                Type = TextObject.TextType.PlainText,
+                Text = "Test Text"
+            },
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(button);
 
         // assert
-        payload.Should().Contain("\"text\":{\"type\":\"plain_text\"");
+        payload.Should().Contain("\"text\":{\"type\":\"plain_text\",\"text\":\"Test Text\"");
     }
 
     [Fact]
     public void ShouldSerializeActionId()
     {
         // arrange
-        var button = new Button { ActionId = "Action123" };
+        var button = new Button
+        {
+            ActionId = "Action123",
+            Text = new TextObject
+            {
+                Type = TextObject.TextType.PlainText,
+                Text = "Click Me"
+            },
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(button);
@@ -47,7 +74,17 @@ public class ButtonElementFixtures
     public void ShouldSerializeUrl()
     {
         // arrange
-        var button = new Button { Url = "http://someurl.com" };
+        var button = new Button
+        {
+            ActionId = "action_1",
+            Text = new TextObject
+            {
+                Type = TextObject.TextType.PlainText,
+                Text = "Click Me"
+            },
+            Url = "http://someurl.com",
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(button);
@@ -60,7 +97,17 @@ public class ButtonElementFixtures
     public void ShouldSerializeValue()
     {
         // arrange
-        var button = new Button { Value = "Value123" };
+        var button = new Button
+        {
+            ActionId = "action_1",
+            Text = new TextObject
+            {
+                Type = TextObject.TextType.PlainText,
+                Text = "Click Me"
+            },
+            Value = "Value123",
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(button);
@@ -73,7 +120,17 @@ public class ButtonElementFixtures
     public void ShouldSerializeStyle()
     {
         // arrange
-        var button = new Button { Style = "Style123" };
+        var button = new Button
+        {
+            ActionId = "action_1",
+            Text = new TextObject
+            {
+                Type = TextObject.TextType.PlainText,
+                Text = "Click Me"
+            },
+            Style = "Style123",
+            Type = ElementType.Unknown
+        };
 
         // act
         var payload = SlackClient.SerializeObject(button);
@@ -86,8 +143,24 @@ public class ButtonElementFixtures
     public void ShouldSerializeConfirm()
     {
         // arrange
-        var confirm = new Confirmation();
-        var button = new Button { Confirm = confirm };
+        var confirm = new Confirmation
+        {
+            Title = new TextObject { Text = "Confirm Title", Type = TextObject.TextType.PlainText },
+            Text = new TextObject { Text = "Are you sure?", Type = TextObject.TextType.PlainText },
+            Confirm = new TextObject { Text = "Yes", Type = TextObject.TextType.PlainText },
+            Deny = new TextObject { Text = "No", Type = TextObject.TextType.PlainText }
+        };
+        var button = new Button
+        {
+            ActionId = "action_1",
+            Text = new TextObject
+            {
+                Type = TextObject.TextType.PlainText,
+                Text = "Click Me"
+            },
+            Confirm = confirm,
+            Type = ElementType.Unknown
+        };
 
         // act
         var confirmPayload = SlackClient.SerializeObject(confirm);

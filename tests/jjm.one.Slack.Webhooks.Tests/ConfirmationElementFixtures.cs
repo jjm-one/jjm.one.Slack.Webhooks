@@ -8,55 +8,75 @@ public class ConfirmationElementFixtures
     public void ShouldSerializeTitle()
     {
         // arrange
-        var confirm = new Confirmation { Title = new TextObject { Text = "Title Test" } };
+        var confirm = new Confirmation
+        {
+            Title = new TextObject { Text = "Confirm Title", Type = TextObject.TextType.PlainText },
+            Text = new TextObject { Text = "Are you sure?", Type = TextObject.TextType.PlainText },
+            Confirm = new TextObject { Text = "Yes", Type = TextObject.TextType.PlainText },
+            Deny = new TextObject { Text = "No", Type = TextObject.TextType.PlainText }
+        };
 
         // act
         var payload = SlackClient.SerializeObject(confirm);
 
         // assert
-        payload.Should().Contain("\"title\":{");
-        payload.Should().Contain("\"text\":\"Title Test\"");
+        payload.Should().Contain("\"title\":\"Confirm Title\"");
     }
 
     [Fact]
     public void ShouldSerializeText()
     {
         // arrange
-        var confirm = new Confirmation { Text = new TextObject { Text = "Title Test" } };
+        var confirm = new Confirmation
+        {
+            Title = new TextObject { Text = "Confirm Title", Type = TextObject.TextType.PlainText },
+            Text = new TextObject { Text = "Are you sure?", Type = TextObject.TextType.PlainText },
+            Confirm = new TextObject { Text = "Yes", Type = TextObject.TextType.PlainText },
+            Deny = new TextObject { Text = "No", Type = TextObject.TextType.PlainText }
+        };
 
         // act
         var payload = SlackClient.SerializeObject(confirm);
 
         // assert
-        payload.Should().Contain("\"text\":{");
-        payload.Should().Contain("\"text\":\"Title Test\"");
+        payload.Should().Contain("\"text\":\"Are you sure?\"");
     }
 
     [Fact]
-    public void ShouldSerializeConfirm()
+    public void ShouldSerializeOkText()
     {
         // arrange
-        var confirm = new Confirmation { Confirm = new TextObject { Text = "Title Test" } };
+        var confirm = new Confirmation
+        {
+            Title = new TextObject { Text = "Confirm Title", Type = TextObject.TextType.PlainText },
+            Text = new TextObject { Text = "Are you sure?", Type = TextObject.TextType.PlainText },
+            Confirm = new TextObject { Text = "Yes", Type = TextObject.TextType.PlainText },
+            Deny = new TextObject { Text = "No", Type = TextObject.TextType.PlainText }
+        };
 
         // act
         var payload = SlackClient.SerializeObject(confirm);
 
         // assert
-        payload.Should().Contain("\"confirm\":{");
-        payload.Should().Contain("\"text\":\"Title Test\"");
+        payload.Should().Contain("\"ok_text\":\"Yes\"");
     }
 
     [Fact]
-    public void ShouldSerializeDeny()
+    public void ShouldSerializeDismissText()
     {
         // arrange
-        var confirm = new Confirmation { Deny = new TextObject { Text = "Title Test" } };
+        var confirm = new Confirmation
+        {
+            Title = new TextObject { Text = "Confirm Title", Type = TextObject.TextType.PlainText },
+            Text = new TextObject { Text = "Are you sure?", Type = TextObject.TextType.PlainText },
+            Confirm = new TextObject { Text = "Yes", Type = TextObject.TextType.PlainText },
+            Deny = new TextObject { Text = "No", Type = TextObject.TextType.PlainText }
+        };
 
         // act
         var payload = SlackClient.SerializeObject(confirm);
 
         // assert
-        payload.Should().Contain("\"deny\":{");
-        payload.Should().Contain("\"text\":\"Title Test\"");
+        payload.Should().Contain("\"dismiss_text\":\"No\"");
     }
 }

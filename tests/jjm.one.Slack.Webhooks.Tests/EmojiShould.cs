@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 
 namespace jjm.one.Slack.Webhooks.Tests;
 
@@ -7,31 +7,37 @@ public class EmojiShould
     [Fact]
     public void SerializeToString()
     {
-        //arrange
+        // arrange
         var emoji = Emoji.Ghost;
 
-        //act
+        // act
         var serialized = JsonConvert.SerializeObject(emoji);
 
-        //assert
-        Assert.Equal("\":ghost:\"", serialized);
+        // assert
+        Assert.Equal("\"ghost\"", serialized);
     }
 
     [Fact]
     public void DeserializeToObject()
     {
-        //arrange and act
-        var deserialized = JsonConvert.DeserializeObject<string>("\":ghost:\"");
+        // arrange
+        var json = "\"ghost\"";
 
-        //assert
+        // act
+        var deserialized = JsonConvert.DeserializeObject<Emoji>(json)?.ToString();
+
+        // assert
         Assert.Equal(Emoji.Ghost, deserialized);
     }
 
     [Fact]
     public void BeComparable()
     {
+        // arrange
         var ghost1 = Emoji.Ghost;
-        var ghost2 = JsonConvert.DeserializeObject<string>("\":ghost:\"");
+        var ghost2 = JsonConvert.DeserializeObject<Emoji>("\"ghost\"")?.ToString();
+
+        // act & assert
         Assert.Equal(ghost1, ghost2);
     }
 }

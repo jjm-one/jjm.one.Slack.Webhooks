@@ -1,4 +1,4 @@
-﻿namespace jjm.one.Slack.Webhooks;
+namespace jjm.one.Slack.Webhooks;
 
 /// <summary>
 ///     Slack Field. Fields are displayed in a table on the message

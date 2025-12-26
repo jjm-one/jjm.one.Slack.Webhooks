@@ -10,7 +10,7 @@ public class TextElementFixtures
     public void ShouldContainTextType(TextObject.TextType textType, string expected)
     {
         // arrange
-        var text = new TextObject { Type = textType };
+        var text = new TextObject { Type = textType, Text = "Sample Text" };
 
         // act
         var payload = SlackClient.SerializeObject(text);
@@ -23,7 +23,7 @@ public class TextElementFixtures
     public void ShouldNotContainEmojiWhenTextTypeIsMarkdown()
     {
         // arrange
-        var text = new TextObject { Type = TextObject.TextType.Markdown };
+        var text = new TextObject { Type = TextObject.TextType.Markdown, Text = "Sample Text" };
 
         // act
         var payload = SlackClient.SerializeObject(text);
@@ -36,12 +36,65 @@ public class TextElementFixtures
     public void ShouldNotSerializeVerbatimWhenTextTypeIsPlainText()
     {
         // arrange
-        var text = new TextObject { Type = TextObject.TextType.PlainText };
+        var text = new TextObject { Type = TextObject.TextType.PlainText, Text = "Sample Text" };
 
         // act
         var payload = SlackClient.SerializeObject(text);
 
         // assert
         payload.Should().NotContain("\"verbatim\":");
+    }
+
+    [Fact]
+    public void ShouldSerializeEmojiWhenTextTypeIsPlainText()
+    {
+        // arrange
+        var text = new TextObject
+        {
+            Type = TextObject.TextType.PlainText,
+            Text = "Sample Text",
+            Emoji = true
+        };
+
+        // act
+        var payload = SlackClient.SerializeObject(text);
+
+        // assert
+        payload.Should().Contain("\"emoji\":true");
+    }
+
+    [Fact]
+    public void ShouldSerializeVerbatimWhenTextTypeIsMarkdown()
+    {
+        // arrange
+        var text = new TextObject
+        {
+            Type = TextObject.TextType.Markdown,
+            Text = "Sample Text",
+            Verbatim = true
+        };
+
+        // act
+        var payload = SlackClient.SerializeObject(text);
+
+        // assert
+        payload.Should().Contain("\"verbatim\":true");
+    }
+
+    [Fact]
+    public void ShouldSerializeText()
+    {
+        // arrange
+        var text = new TextObject
+        {
+            Type = TextObject.TextType.PlainText,
+            Text = "Sample Text"
+        };
+
+        // act
+        var payload = SlackClient.SerializeObject(text);
+
+        // assert
+        payload.Should().Contain("\"text\":\"Sample Text\"");
     }
 }

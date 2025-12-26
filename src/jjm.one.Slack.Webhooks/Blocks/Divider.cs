@@ -1,4 +1,4 @@
-﻿namespace jjm.one.Slack.Webhooks.Blocks;
+namespace jjm.one.Slack.Webhooks.Blocks;
 
 /// <summary>
 ///     A content divider, like an &lt;hr&gt;, to split up different blocks inside of a message. The
